@@ -1,10 +1,9 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link, Route, Switch, useLocation } from "wouter";
 import {
   ArrowRight, Bath, ChevronDown, Clock3, Droplets, Flame, House,
   Mail, MapPin, Menu, Phone, ShieldCheck, Sparkles, Wrench, X, Zap
 } from "lucide-react";
-import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import Home from "./pages/Home";
 
