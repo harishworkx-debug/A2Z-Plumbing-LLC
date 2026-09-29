@@ -7,9 +7,9 @@ import {
 import { Button } from "@/components/ui/button";
 import Home from "./pages/Home";
 
-export const PHONE = "+1 510-701-2472";
-export const PHONE_DISPLAY = "510-701-2472";
-export const PHONE_TEL = "tel:+15107012472";
+export const PHONE = "+1 510-544-1054";
+export const PHONE_DISPLAY = "510-544-1054";
+export const PHONE_TEL = "tel:+15105441054";
 export const MAPS_URL = "https://maps.app.goo.gl/9HrL1aAYbxrksA7t7";
 
 export const mainServices = [
