@@ -598,6 +598,85 @@ function AboutPage(){ return <><Seo title="Why A2Z Plumbing LLC | Fairfield, CA"
 
 function ContactPage(){ return <><Seo title="Contact A2Z Plumbing LLC | Fairfield, CA" description="Contact A2Z Plumbing LLC for plumbing service in Fairfield and nearby California communities."/><BreadcrumbJsonLd items={[{name:"Home", url:"/"}, {name:"Contact", url:"/contact"}]} /><div className="page-shell"><BreadcrumbNav items={[{label:"Home", href:"/"}, {label:"Contact"}]} /><section className="location-hero contact-hero"><div className="container"><div className="eyebrow dark-eyebrow">CONTACT A2Z PLUMBING</div><h1>Tell us what’s happening.</h1><p className="location-lede">Call directly for plumbing help, service questions, and the best next step for your home or business.</p><Button asChild className="btn-copper"><a href={PHONE_TEL}><Phone size={17}/> Call {PHONE_DISPLAY}</a></Button></div></section><section className="content-section scroll-reveal"><div className="container contact-grid"><div><div className="eyebrow dark-eyebrow">GET IN TOUCH</div><h2>One call gets the conversation started.</h2><p>Share the location, what changed, and whether water is actively escaping. A photo or a quick description can help us understand the situation.</p><div className="contact-cards"><a href={PHONE_TEL}><Phone size={20}/><span><b>Call directly</b><small>{PHONE_DISPLAY}</small></span><ArrowRight size={16}/></a><a href={MAPS_URL} target="_blank" rel="noreferrer"><MapPin size={20}/><span><b>Find the listing</b><small>Google Maps</small></span><ArrowRight size={16}/></a><a href="mailto:hello@a2zplumbingllc.com"><Mail size={20}/><span><b>Email</b><small>hello@a2zplumbingllc.com</small></span><ArrowRight size={16}/></a></div></div><div className="contact-panel"><div className="eyebrow dark-eyebrow">SERVICE HOURS</div><h3>Open 24 hours</h3><p>Call anytime to discuss an urgent plumbing issue or request service.</p><div className="contact-panel-line"><Clock3 size={18}/> Fairfield, California</div><div className="contact-panel-line"><ShieldCheck size={18}/> Residential & commercial plumbing</div></div></div></section><section className="soft-section scroll-reveal"><div className="container contact-map-grid"><div><div className="eyebrow dark-eyebrow">SERVICE AREA</div><h2>Serving Fairfield and nearby communities.</h2><p>A2Z Plumbing is based in Fairfield and serves the surrounding communities listed on this site. Call to confirm availability for your address.</p></div><div className="map-frame"><iframe title="A2Z Plumbing LLC location map" src="https://www.google.com/maps?q=A2Z+Plumbing+LLC,+4970+Paramount+Ct,+Fairfield,+CA+94534&output=embed" loading="lazy" referrerPolicy="no-referrer-when-downgrade"/></div></div></section></div></>; }
 
+import { guidesData } from "./data/guides";
+
+function GuideArticlePage({guideSlug}:{guideSlug:string}) {
+  const guide = guidesData[guideSlug];
+  if (!guide) return <NotFound/>;
+
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": guide.title,
+    "description": guide.metaDesc,
+    "author": {
+      "@type": "Organization",
+      "name": "A2Z Plumbing LLC"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "A2Z Plumbing LLC",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.a2zplumbingllc.com/favicon.svg"
+      }
+    },
+    "datePublished": guide.publishedDate
+  };
+
+  return (
+    <>
+      <Seo title={`${guide.title} | A2Z Plumbing LLC`} description={guide.metaDesc} />
+      <JsonLd data={articleSchema} />
+      <BreadcrumbJsonLd items={[{name:"Home", url:"/"}, {name:"Plumbing Guides", url:"/#guides"}, {name:guide.title, url:`/guides/${guide.slug}`}]} />
+
+      <div className="page-shell">
+        <BreadcrumbNav items={[{label:"Home", href:"/"}, {label:"Plumbing Guides"}, {label:guide.title}]} />
+
+        <main>
+          <article className="content-section">
+            <div className="container" style={{maxWidth: '850px', margin: '0 auto'}}>
+              <div className="eyebrow dark-eyebrow">{guide.category.toUpperCase()} • {guide.readTime}</div>
+              <h1 style={{fontSize: '2.4rem', margin: '15px 0 25px'}}>{guide.title}</h1>
+              <p className="hero-copy" style={{fontSize: '1.15rem', color: '#555', marginBottom: '35px', lineHeight: '1.7'}}>{guide.intro}</p>
+
+              {guide.sections.map((sec, i) => (
+                <div key={i} style={{marginBottom: '30px'}}>
+                  <h2 style={{fontSize: '1.5rem', color: 'var(--navy)', marginBottom: '12px'}}>{sec.h2}</h2>
+                  <p style={{fontSize: '1.05rem', lineHeight: '1.7', color: '#444'}}>{sec.body}</p>
+                </div>
+              ))}
+
+              <div className="feature-band" style={{margin: '40px 0', padding: '30px', borderRadius: '12px', background: 'var(--mist)'}}>
+                <h3>Need Professional Assistance?</h3>
+                <p>If you prefer to have a licensed plumber inspect or repair your system, A2Z Plumbing LLC is ready to help.</p>
+                <div style={{marginTop: '20px', display: 'flex', gap: '15px', alignItems: 'center'}}>
+                  <Button asChild className="btn-copper"><a href={PHONE_TEL}><Phone size={16}/> Call {PHONE_DISPLAY}</a></Button>
+                  <Link href={`/${guide.relatedServiceId}`} className="text-link">Explore related service <ArrowRight size={15}/></Link>
+                </div>
+              </div>
+
+              {guide.faqs.length > 0 && (
+                <section className="faq-section" style={{padding: '0', background: 'transparent'}}>
+                  <h2 style={{fontSize: '1.6rem', marginBottom: '20px'}}>Frequently Asked Questions</h2>
+                  <div className="faq-stack">
+                    {guide.faqs.map(([q, a]) => (
+                      <details key={q}>
+                        <summary>{q}<ChevronDown size={18}/></summary>
+                        <p>{a}</p>
+                      </details>
+                    ))}
+                  </div>
+                </section>
+              )}
+            </div>
+          </article>
+        </main>
+      </div>
+    </>
+  );
+}
+
 const generatedServiceRoutes: {href:string, serviceId:string, cityId:string}[] = [];
 Object.keys(servicesData).forEach(serviceId => {
   Object.keys(cityData).forEach(cityId => {
@@ -624,6 +703,13 @@ function Router(){
         </Route>
       ))}
 
+      {/* Educational Plumbing Guides */}
+      {Object.keys(guidesData).map(guideSlug => (
+        <Route key={guideSlug} path={`/guides/${guideSlug}`}>
+          <GuideArticlePage guideSlug={guideSlug}/>
+        </Route>
+      ))}
+
       {/* City Landing Pages */}
       {locationPages.map(([city,href]) => (
         <Route key={href} path={href}>
@@ -644,4 +730,5 @@ function Router(){
 }
 
 export default function App(){return <><ScrollToTop/><ScrollEffects/><Header/><Router/><Footer/><a className="sticky-call" href={PHONE_TEL}><Phone size={18}/> Call Now</a></>}
+
 
