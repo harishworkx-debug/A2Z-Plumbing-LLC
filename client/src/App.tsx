@@ -13,16 +13,18 @@ export const PHONE_TEL = "tel:+15105441054";
 export const MAPS_URL = "https://maps.app.goo.gl/9HrL1aAYbxrksA7t7";
 
 export const mainServices = [
-  ["Residential Plumbing", "/residential-plumbing-fairfield-ca"],
-  ["Emergency Plumber", "/emergency-plumber-fairfield-ca"],
-  ["Plumbing Repair", "/plumbing-repair-fairfield-ca"],
-  ["Drain Cleaning", "/drain-cleaning-fairfield-ca"],
-  ["Leak Detection & Repair", "/leak-detection-repair-fairfield-ca"],
-  ["Water Heater Repair", "/water-heater-repair-fairfield-ca"],
-  ["Water Heater Installation", "/water-heater-installation-fairfield-ca"],
-  ["Toilet Repair", "/toilet-repair-fairfield-ca"],
-  ["Faucet Repair", "/faucet-repair-fairfield-ca"],
-  ["Garbage Disposal Repair", "/garbage-disposal-repair-fairfield-ca"],
+  ["Emergency Plumbing", "/emergency-plumber"],
+  ["Drain Cleaning", "/drain-cleaning"],
+  ["Leak Detection & Repair", "/leak-detection-repair"],
+  ["Water Heater Repair", "/water-heater-repair"],
+  ["Water Heater Installation", "/water-heater-installation"],
+  ["Sewer Line Repair", "/sewer-line-repair"],
+  ["Repiping Services", "/repiping"],
+  ["Toilet Repair", "/toilet-repair"],
+  ["Faucet Repair", "/faucet-repair"],
+  ["Garbage Disposal Repair", "/garbage-disposal-repair"],
+  ["Residential Plumbing", "/residential-plumbing"],
+  ["Plumbing Repair", "/plumbing-repair"],
 ] as const;
 
 import { locationPagesList, cityData } from "./data/locations";
@@ -37,7 +39,7 @@ function Header() {
   const [location] = useLocation();
   useEffect(() => setOpen(false), [location]);
   return <>
-    <div className="topbar"><div className="container topbar-inner"><span><Clock3 size={14}/> Open 24 hours</span><span className="topbar-sep">•</span><span>Serving Fairfield & Suisun City</span><a href={PHONE_TEL}><Phone size={14}/> {PHONE_DISPLAY}</a></div></div>
+    <div className="topbar"><div className="container topbar-inner"><span><Clock3 size={14}/> Open 24 hours</span><span className="topbar-sep">•</span><span>Serving Fairfield & Solano County</span><a href={PHONE_TEL}><Phone size={14}/> {PHONE_DISPLAY}</a></div></div>
     <header className="site-header">
       <div className="container nav-inner">
         <Link href="/" className="brand" aria-label="A2Z Plumbing LLC home"><span className="brand-mark"><Droplets size={19}/></span><span>A2Z <b>PLUMBING</b><small>LLC</small></span></Link>
@@ -50,13 +52,13 @@ function Header() {
 }
 
 function Footer() {
-  return <footer className="footer"><div className="container footer-grid"><div><Link href="/" className="brand brand-light"><span className="brand-mark"><Droplets size={19}/></span><span>A2Z <b>PLUMBING</b><small>LLC</small></span></Link><p className="footer-lede">Thoughtful plumbing service for the homes and businesses that keep Solano County moving.</p><a className="footer-call" href={PHONE_TEL}><Phone size={16}/> {PHONE_DISPLAY}</a></div><div><h4>Services</h4>{mainServices.slice(0,6).map(([label, href]) => <Link key={href} href={href}>{label.replace(" in Fairfield", "")}</Link>)}</div><div><h4>Service Areas</h4>{locationPages.map(([label, href]) => <Link key={href} href={href}>{label}</Link>)}<a href={MAPS_URL} target="_blank" rel="noreferrer">Google Maps listing <ArrowRight size={13}/></a></div><div><h4>Explore</h4><Link href="/about">Why A2Z</Link><Link href="/contact">Contact</Link><h4 className="footer-subhead">Get in touch</h4><p>Need a plumber? Let’s talk through the issue and the next best step.</p><Button asChild className="btn-copper"><a href={PHONE_TEL}>Speak with a plumber <Phone size={15}/></a></Button></div></div><div className="container footer-bottom"><span>© {new Date().getFullYear()} A2Z Plumbing LLC. All rights reserved.</span><span>Fairfield, California</span></div></footer>;
+  return <footer className="footer"><div className="container footer-grid"><div><Link href="/" className="brand brand-light"><span className="brand-mark"><Droplets size={19}/></span><span>A2Z <b>PLUMBING</b><small>LLC</small></span></Link><p className="footer-lede">Thoughtful plumbing service for the homes and businesses that keep Solano County moving.</p><a className="footer-call" href={PHONE_TEL}><Phone size={16}/> {PHONE_DISPLAY}</a></div><div><h4>Services</h4>{mainServices.slice(0,6).map(([label, href]) => <Link key={href} href={href}>{label}</Link>)}</div><div><h4>Service Areas</h4>{locationPages.map(([label, href]) => <Link key={href} href={href}>{label}</Link>)}<a href={MAPS_URL} target="_blank" rel="noreferrer">Google Maps listing <ArrowRight size={13}/></a></div><div><h4>Explore</h4><Link href="/about">Why A2Z</Link><Link href="/contact">Contact</Link><h4 className="footer-subhead">Get in touch</h4><p>Need a plumber? Let’s talk through the issue and the next best step.</p><Button asChild className="btn-copper"><a href={PHONE_TEL}>Speak with a plumber <Phone size={15}/></a></Button></div></div><div className="container footer-bottom"><span>© {new Date().getFullYear()} A2Z Plumbing LLC. All rights reserved.</span><span>Fairfield, California</span></div></footer>;
 }
 
 
-export function Seo({title, description, image = "https://images.unsplash.com/photo-1585704032915-c3400ca199e7?auto=format&fit=crop&w=1200&q=80"}:{title:string;description:string;image?:string}) {
+export function Seo({title, description, canonicalUrl, image = "https://images.unsplash.com/photo-1585704032915-c3400ca199e7?auto=format&fit=crop&w=1200&q=80"}:{title:string;description:string;canonicalUrl?:string;image?:string}) {
   useEffect(() => { 
-    document.title=title; 
+    document.title = title; 
     const setMeta = (name: string, content: string, isProp = false) => {
       const attr = isProp ? 'property' : 'name';
       let meta = document.querySelector(`meta[${attr}="${name}"]`);
@@ -67,21 +69,35 @@ export function Seo({title, description, image = "https://images.unsplash.com/ph
       }
       meta.setAttribute("content", content);
     };
+
+    // Trailing Slash Normalization (strips trailing slash for non-root paths)
+    let finalCanonical = canonicalUrl;
+    if (!finalCanonical) {
+      const urlObj = new URL(window.location.href);
+      let path = urlObj.pathname;
+      if (path.length > 1 && path.endsWith('/')) {
+        path = path.slice(0, -1);
+      }
+      finalCanonical = `${urlObj.origin}${path}`;
+    }
+
     setMeta("description", description);
+    setMeta("robots", "index, follow, max-image-preview:large");
+    setMeta("googlebot", "index, follow");
     setMeta("og:title", title, true);
     setMeta("og:description", description, true);
     setMeta("og:image", image, true);
     setMeta("og:type", "website", true);
-    setMeta("og:url", window.location.href.split("#")[0], true);
+    setMeta("og:url", finalCanonical, true);
 
-    let canonical=document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null; 
+    let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null; 
     if(!canonical) {
       canonical = document.createElement('link');
       canonical.setAttribute('rel', 'canonical');
       document.head.appendChild(canonical);
     }
-    canonical.href=window.location.href.split("#")[0]; 
-  },[title,description,image]); 
+    canonical.href = finalCanonical; 
+  },[title,description,canonicalUrl,image]); 
   return null; 
 }
 
@@ -114,6 +130,162 @@ export function BreadcrumbJsonLd({items}:{items:{name:string, url:string}[]}) {
   return <JsonLd data={schema} />;
 }
 
+// Standalone Core Service Page Component
+function CoreServicePage({serviceId}:{serviceId:string}) {
+  const service = servicesData[serviceId];
+  if(!service) return <NotFound/>;
+
+  const title = `${service.name} Services | A2Z Plumbing LLC`;
+  const cleanTitle = service.title.replace(" in {city}, CA", "").replace(" in {city}", "");
+  const cleanDesc = service.description.replace(" in {city}", " in Fairfield, Solano & Napa County");
+  const cleanIntro = service.intro.replace(" {city}", " Fairfield and Solano County");
+  const canonicalUrl = `https://www.a2zplumbingllc.com/${serviceId}`;
+
+  const schema = {
+    "@context":"https://schema.org",
+    "@type":"Service",
+    "name": service.name,
+    "description": cleanDesc,
+    "provider": {
+      "@type":"LocalBusiness",
+      "name":"A2Z Plumbing LLC",
+      "telephone":PHONE,
+      "address": {
+        "@type":"PostalAddress",
+        "streetAddress":"4970 Paramount Ct",
+        "addressLocality":"Fairfield",
+        "addressRegion":"CA",
+        "postalCode":"94534",
+        "addressCountry":"US"
+      }
+    }
+  };
+
+  return (
+    <>
+      <Seo title={title} description={cleanDesc} canonicalUrl={canonicalUrl} image={service.image} />
+      <JsonLd data={schema}/>
+      <BreadcrumbJsonLd items={[{name:"Home", url:"/"}, {name:"Services", url:"/#services"}, {name:service.name, url:`/${serviceId}`}]} />
+      
+      <div className="page-shell">
+        <BreadcrumbNav items={[{label:"Home", href:"/"}, {label:service.name}]} />
+        
+        <main>
+          <section className="service-hero">
+            <div className="container service-hero-grid">
+              <div>
+                <div className="eyebrow"><span className="eyebrow-dot"/>EXPERT PLUMBING SERVICE</div>
+                <h1>{cleanTitle}</h1>
+                <p className="hero-copy">{cleanIntro}</p>
+                <div className="hero-actions">
+                  <Button asChild className="btn-copper"><a href={PHONE_TEL}><Phone size={17}/> Call {PHONE_DISPLAY}</a></Button>
+                  <a className="text-link light-link" href="#service-details">Explore details <ArrowRight size={16}/></a>
+                </div>
+              </div>
+              <div className="service-hero-image">
+                <img src={service.image} alt={`${service.name} - A2Z Plumbing LLC`} />
+                <div className="image-note"><ShieldCheck size={17}/><span>Clear communication.<br/><b>Upfront pricing transparency.</b></span></div>
+              </div>
+            </div>
+          </section>
+
+          <section id="service-details" className="content-section">
+            <div className="container two-col">
+              <div>
+                <div className="eyebrow dark-eyebrow">DIAGNOSTICS & SIGNS</div>
+                <h2>{service.signsH2.replace(" in {city}", "")}</h2>
+                <div className="detail-copy" style={{marginTop: '25px'}}>
+                  {service.signs.map((d,i)=><div className="detail-row" key={i}><span>0{i+1}</span><p>{d}</p></div>)}
+                </div>
+              </div>
+              <div>
+                <div className="eyebrow dark-eyebrow">COMMON PROBLEMS WE FIX</div>
+                <h2>{service.commonH2.replace(" in {city}", "")}</h2>
+                <div className="detail-copy" style={{marginTop: '25px'}}>
+                  {service.common.map((d,i)=><div className="detail-row" key={i}><span>0{i+1}</span><p>{d}</p></div>)}
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section className="soft-section scroll-reveal">
+            <div className="container">
+              <div className="section-heading">
+                <div>
+                  <div className="eyebrow dark-eyebrow">OUR REPAIR & SERVICE PROCESS</div>
+                  <h2>{service.servicesH2.replace("{city} ", "")}</h2>
+                </div>
+              </div>
+              <div className="value-grid">
+                {service.services.map((s,i)=><div key={i}><b>0{i+1}</b><h3 style={{fontSize: '18px'}}>{s}</h3></div>)}
+              </div>
+            </div>
+          </section>
+
+          <section className="feature-band scroll-reveal">
+            <div className="container feature-grid">
+              <div className="feature-image">
+                <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1200&q=85" alt={`Emergency ${service.name}`}/>
+                <div className="feature-stamp"><BadgeCheck size={18}/><span>Local<br/><b>service</b></span></div>
+              </div>
+              <div className="feature-copy">
+                <div className="eyebrow">TRANSPARENT REPAIR APPROACH</div>
+                <h2>{service.emergencyH2.replace(" in {city}", "")}</h2>
+                <p>{service.emergencyP.replace(" {city}", " Solano and Napa County homes")}</p>
+                <div className="feature-list">
+                  <span><span className="check">✓</span> Direct phone consultation with a licensed plumber</span>
+                  <span><span className="check">✓</span> Straightforward diagnostic process & clear estimate</span>
+                  <span><span className="check">✓</span> Full cleanup and respect for your property</span>
+                </div>
+                <Button asChild className="btn-copper"><a href={PHONE_TEL}>Speak with a plumber <Phone size={16}/></a></Button>
+              </div>
+            </div>
+          </section>
+
+          {/* Contextual City Links */}
+          <section className="soft-section scroll-reveal">
+            <div className="container">
+              <div className="section-heading">
+                <div>
+                  <div className="eyebrow dark-eyebrow">SERVICE LOCATIONS</div>
+                  <h2>{service.name} Service Areas</h2>
+                </div>
+              </div>
+              <p style={{marginBottom: '20px', color: '#555'}}>We provide professional {service.name.toLowerCase()} services across Fairfield and neighboring Solano, Napa, and Contra Costa communities.</p>
+              <div className="related-grid" style={{gridTemplateColumns: 'repeat(4, 1fr)'}}>
+                {locationPagesList.map(city => {
+                  const locSlug = cityData[city].slug;
+                  return <Link className="related-card" style={{padding: '12px 15px', fontSize: '13px'}} href={`/${locSlug}`} key={city}><span>{service.name} in {city}</span><ArrowRight size={14}/></Link>
+                })}
+              </div>
+            </div>
+          </section>
+
+          <section className="faq-section scroll-reveal">
+            <div className="container faq-grid">
+              <div>
+                <div className="eyebrow dark-eyebrow">QUESTIONS, ANSWERED</div>
+                <h2>{service.name} FAQs</h2>
+                <p>Have questions about {service.name.toLowerCase()}? Contact us directly for advice.</p>
+                <Button asChild className="btn-navy"><a href={PHONE_TEL}>Call {PHONE_DISPLAY} <Phone size={16}/></a></Button>
+              </div>
+              <div className="faq-stack">
+                {service.faqs.map(([q,a])=>
+                  <details key={q}>
+                    <summary>{q.replace(" in {city}", "")}<ChevronDown size={18}/></summary>
+                    <p>{a.replace(" {city}", " local properties")}</p>
+                  </details>
+                )}
+              </div>
+            </div>
+          </section>
+        </main>
+      </div>
+    </>
+  );
+}
+
+// City-Service Matrix Page (Canonicalized to Core Service URL to prevent duplication)
 function ServicePage({serviceId, cityId}:{serviceId:string, cityId:string}) { 
   const service = servicesData[serviceId]; 
   const cityInfo = cityData[cityId];
@@ -124,6 +296,9 @@ function ServicePage({serviceId, cityId}:{serviceId:string, cityId:string}) {
   const fullDesc = service.description.replace(/{city}/g, cityName);
   const introText = service.intro.replace(/{city}/g, cityName);
   const slug = `${serviceId}-${cityInfo.slug.replace("plumber-", "")}`;
+  
+  // Canonicalize city-service matrix back to core service URL to prevent thin/duplicate content penalties
+  const canonicalUrl = `https://www.a2zplumbingllc.com/${serviceId}`;
   
   const schema = {
     "@context":"https://schema.org",
@@ -136,6 +311,7 @@ function ServicePage({serviceId, cityId}:{serviceId:string, cityId:string}) {
       "telephone":PHONE,
       "address": {
         "@type":"PostalAddress",
+        "streetAddress":"4970 Paramount Ct",
         "addressLocality":"Fairfield",
         "addressRegion":"CA",
         "postalCode":"94534",
@@ -150,15 +326,14 @@ function ServicePage({serviceId, cityId}:{serviceId:string, cityId:string}) {
   
   return (
     <>
-      <Seo title={`${fullTitle} | A2Z Plumbing LLC`} description={fullDesc} image={service.image} />
+      <Seo title={`${fullTitle} | A2Z Plumbing LLC`} description={fullDesc} canonicalUrl={canonicalUrl} image={service.image} />
       <JsonLd data={schema}/>
-      <BreadcrumbJsonLd items={[{name:"Home", url:"/"}, {name:"Services", url:"/#services"}, {name:fullTitle, url:`/${slug}`}]} />
+      <BreadcrumbJsonLd items={[{name:"Home", url:"/"}, {name:service.name, url:`/${serviceId}`}, {name:cityName, url:`/${cityInfo.slug}`}]} />
       
       <div className="page-shell">
-        <BreadcrumbNav items={[{label:"Home", href:"/"}, {label:fullTitle}]} />
+        <BreadcrumbNav items={[{label:"Home", href:"/"}, {label:service.name, href:`/${serviceId}`}, {label:cityName}]} />
         
         <main>
-          {/* Hero Section */}
           <section className="service-hero">
             <div className="container service-hero-grid">
               <div>
@@ -166,7 +341,7 @@ function ServicePage({serviceId, cityId}:{serviceId:string, cityId:string}) {
                 <h1>{fullTitle}</h1>
                 <p className="hero-copy">{introText}</p>
                 <div className="hero-actions">
-                  <Button asChild className="btn-copper"><a href={PHONE_TEL}><Phone size={17}/> Call Now</a></Button>
+                  <Button asChild className="btn-copper"><a href={PHONE_TEL}><Phone size={17}/> Call {PHONE_DISPLAY}</a></Button>
                   <a className="text-link light-link" href="#service-details">Explore service details <ArrowRight size={16}/></a>
                 </div>
               </div>
@@ -177,7 +352,6 @@ function ServicePage({serviceId, cityId}:{serviceId:string, cityId:string}) {
             </div>
           </section>
 
-          {/* Signs and Common Problems */}
           <section id="service-details" className="content-section">
             <div className="container two-col">
               <div>
@@ -197,7 +371,6 @@ function ServicePage({serviceId, cityId}:{serviceId:string, cityId:string}) {
             </div>
           </section>
 
-          {/* Our Services */}
           <section className="soft-section scroll-reveal">
             <div className="container">
                <div className="section-heading">
@@ -212,7 +385,6 @@ function ServicePage({serviceId, cityId}:{serviceId:string, cityId:string}) {
             </div>
           </section>
 
-          {/* Emergency Section */}
           <section className="feature-band scroll-reveal">
             <div className="container feature-grid">
               <div className="feature-image">
@@ -233,41 +405,23 @@ function ServicePage({serviceId, cityId}:{serviceId:string, cityId:string}) {
             </div>
           </section>
 
-          {/* Why A2Z */}
-          <section className="why-section scroll-reveal">
-            <div className="container">
-              <div className="why-heading">
-                <div className="eyebrow dark-eyebrow">WHY CHOOSE A2Z</div>
-                <h2>Professional service for {cityName} residents.</h2>
-              </div>
-              <div className="why-grid">
-                <div className="why-item"><span>01</span><h3>Listen first</h3><p>We start with your description of the problem and the context around it.</p></div>
-                <div className="why-item"><span>02</span><h3>Explain clearly</h3><p>We keep the conversation practical, so you can make an informed decision.</p></div>
-                <div className="why-item"><span>03</span><h3>Respect the space</h3><p>Thoughtful work includes care for your home, your time, and your routine.</p></div>
-                <div className="why-item"><span>04</span><h3>Stay reachable</h3><p>Call directly when something changes or you need help deciding what is urgent.</p></div>
-              </div>
-            </div>
-          </section>
-
-          {/* Service Areas Interlinking */}
           <section className="soft-section scroll-reveal">
              <div className="container">
                <div className="section-heading">
                 <div>
-                  <div className="eyebrow dark-eyebrow">SERVICE AREAS</div>
-                  <h2>Areas We Serve</h2>
+                  <div className="eyebrow dark-eyebrow">RELATED LOCATIONS</div>
+                  <h2>{service.name} in Nearby Cities</h2>
                 </div>
               </div>
               <div className="related-grid" style={{gridTemplateColumns: 'repeat(4, 1fr)'}}>
                  {locationPagesList.slice(0, 8).map(city => {
-                    const locSlug = `/${serviceId}-${cityData[city].slug.replace("plumber-", "")}`;
-                    return <Link className="related-card" style={{padding: '12px 15px', fontSize: '13px'}} href={locSlug} key={city}><span>{city}</span><ArrowRight size={14}/></Link>
+                    const locSlug = cityData[city].slug;
+                    return <Link className="related-card" style={{padding: '12px 15px', fontSize: '13px'}} href={`/${locSlug}`} key={city}><span>{service.name} in {city}</span><ArrowRight size={14}/></Link>
                  })}
               </div>
              </div>
           </section>
 
-          {/* FAQs */}
           <section className="faq-section scroll-reveal">
             <div className="container faq-grid">
               <div>
@@ -286,7 +440,6 @@ function ServicePage({serviceId, cityId}:{serviceId:string, cityId:string}) {
               </div>
             </div>
           </section>
-
         </main>
       </div>
     </>
@@ -343,7 +496,7 @@ function LocationPage({city}:{city:string}) {
           </div>
         </section>
 
-        {/* Services Available */}
+        {/* Core Services Available */}
         <section className="soft-section">
           <div className="container">
             <div className="section-heading">
@@ -457,6 +610,38 @@ Object.keys(servicesData).forEach(serviceId => {
   });
 });
 
-function Router(){return <Switch><Route path="/" component={Home}/><Route path="/about" component={AboutPage}/><Route path="/contact" component={ContactPage}/>{locationPages.map(([city,href])=><Route key={href} path={href}><LocationPage city={city}/></Route>)}{generatedServiceRoutes.map(({href, serviceId, cityId})=><Route key={href} path={href}><ServicePage serviceId={serviceId} cityId={cityId}/></Route>)}<Route component={NotFound}/></Switch>}
+function Router(){
+  return (
+    <Switch>
+      <Route path="/" component={Home}/>
+      <Route path="/about" component={AboutPage}/>
+      <Route path="/contact" component={ContactPage}/>
+      
+      {/* Core Standalone Service Routes */}
+      {Object.keys(servicesData).map(serviceId => (
+        <Route key={serviceId} path={`/${serviceId}`}>
+          <CoreServicePage serviceId={serviceId}/>
+        </Route>
+      ))}
+
+      {/* City Landing Pages */}
+      {locationPages.map(([city,href]) => (
+        <Route key={href} path={href}>
+          <LocationPage city={city}/>
+        </Route>
+      ))}
+
+      {/* City-Service Matrix Routes (Canonicalized to Core Service URL) */}
+      {generatedServiceRoutes.map(({href, serviceId, cityId}) => (
+        <Route key={href} path={href}>
+          <ServicePage serviceId={serviceId} cityId={cityId}/>
+        </Route>
+      ))}
+
+      <Route component={NotFound}/>
+    </Switch>
+  );
+}
 
 export default function App(){return <><ScrollToTop/><ScrollEffects/><Header/><Router/><Footer/><a className="sticky-call" href={PHONE_TEL}><Phone size={18}/> Call Now</a></>}
+

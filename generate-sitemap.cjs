@@ -1,14 +1,28 @@
 const fs = require('fs');
+
 const cities = ['fairfield', 'suisun-city', 'vacaville', 'vallejo', 'benicia', 'dixon', 'rio-vista', 'american-canyon', 'napa', 'martinez'];
-const services = ['plumber', 'residential-plumbing', 'emergency-plumber', 'plumbing-repair', 'drain-cleaning', 'leak-detection-repair', 'water-heater-repair', 'water-heater-installation', 'toilet-repair', 'faucet-repair', 'garbage-disposal-repair', 'sewer-line-repair', 'repiping'];
+const coreServices = [
+  'emergency-plumber', 
+  'drain-cleaning', 
+  'leak-detection-repair', 
+  'water-heater-repair', 
+  'water-heater-installation', 
+  'sewer-line-repair', 
+  'repiping', 
+  'toilet-repair', 
+  'faucet-repair', 
+  'garbage-disposal-repair',
+  'residential-plumbing',
+  'plumbing-repair'
+];
 
 const urls = ['/', '/about', '/contact'];
+
+// Add core standalone service pages
+coreServices.forEach(s => urls.push('/' + s));
+
+// Add primary city landing pages
 cities.forEach(c => urls.push('/plumber-' + c + '-ca'));
-services.forEach(s => {
-  if (s !== 'plumber') {
-    cities.forEach(c => urls.push('/' + s + '-' + c + '-ca'));
-  }
-});
 
 const today = new Date().toISOString().split('T')[0];
 
@@ -22,4 +36,5 @@ fs.writeFileSync('client/public/sitemap.xml', xml);
 if (fs.existsSync('dist/public')) {
   fs.writeFileSync('dist/public/sitemap.xml', xml);
 }
-console.log("Sitemap generated with " + urls.length + " URLs.");
+console.log("High-quality Sitemap generated with " + urls.length + " canonical URLs.");
+
