@@ -2,6 +2,7 @@
   "buildCommand": "npx vite build",
   "outputDirectory": "dist/public",
   "framework": "vite",
+  "trailingSlash": false,
   "rewrites": [
     {
       "source": "/(.*)",
