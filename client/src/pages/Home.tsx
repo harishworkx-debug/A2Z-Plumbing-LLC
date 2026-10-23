@@ -235,43 +235,6 @@ export default function Home(){
           </div>
         </section>
 
-        {/* Customer Reviews */}
-        <section className="reviews-section scroll-reveal">
-          <div className="container">
-            <div className="section-heading review-heading">
-              <div>
-                <div className="eyebrow dark-eyebrow">CUSTOMER TESTIMONIALS</div>
-                <h2>What local homeowners say about AZ Plumbers.</h2>
-              </div>
-              <div className="review-score">
-                <strong>5.0 ★</strong>
-                <span>Verified Google Rating<br/><small>Based on real customer feedback</small></span>
-              </div>
-            </div>
-            <div className="review-grid">
-              <blockquote>
-                <div className="stars">★★★★★</div>
-                <p>“We had a great experience with AZ Plumbers. They were professional, courteous, and respectful of our home—especially wearing shoe covers while working. The pricing was transparent and fair. Highly recommended!”</p>
-                <cite><strong>Monique Keana</strong><span>Fairfield Homeowner</span></cite>
-              </blockquote>
-              <blockquote>
-                <div className="stars">★★★★★</div>
-                <p>“Fast service, excellent workmanship. Took our emergency call at 6:00 PM and completed the fixture repair before 9:00 PM. Professional and reliable service.”</p>
-                <cite><strong>Sim Manuta</strong><span>Local Resident</span></cite>
-              </blockquote>
-              <blockquote>
-                <div className="stars">★★★★★</div>
-                <p>“Super helpful team, arrived promptly after our call. Very professional, diagnosed the issue quickly, and left everything clean. Will definitely hire again.”</p>
-                <cite><strong>Antje Worring</strong><span>Local Guide</span></cite>
-              </blockquote>
-              <blockquote>
-                <div className="stars">★★★★★</div>
-                <p>“Our toilet needed urgent repair and AZ Plumbers came out the very next day—even on a Sunday! Service was fast, clean, and the price was very reasonable.”</p>
-                <cite><strong>Veronika Skrnjug</strong><span>Verified Review</span></cite>
-              </blockquote>
-            </div>
-          </div>
-        </section>
 
         {/* FAQs */}
         <section id="faqs" className="faq-section scroll-reveal">

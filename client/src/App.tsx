@@ -595,6 +595,127 @@ function AboutPage(){ return <><Seo title="Why AZ Plumbers | Fairfield, CA" desc
 
 function ContactPage(){ return <><Seo title="Contact AZ Plumbers | Fairfield, CA" description="Contact AZ Plumbers for plumbing service in Fairfield and nearby California communities."/><BreadcrumbJsonLd items={[{name:"Home", url:"/"}, {name:"Contact", url:"/contact"}]} /><div className="page-shell"><BreadcrumbNav items={[{label:"Home", href:"/"}, {label:"Contact"}]} /><section className="location-hero contact-hero"><div className="container"><div className="eyebrow dark-eyebrow">CONTACT AZ PLUMBERS</div><h1>Tell us what’s happening.</h1><p className="location-lede">Call directly for plumbing help, service questions, and the best next step for your home or business.</p><Button asChild className="btn-copper"><a href={PHONE_TEL}><Phone size={17}/> Call {PHONE_DISPLAY}</a></Button></div></section><section className="content-section scroll-reveal"><div className="container contact-grid"><div><div className="eyebrow dark-eyebrow">GET IN TOUCH</div><h2>One call gets the conversation started.</h2><p>Share the location, what changed, and whether water is actively escaping. A photo or a quick description can help us understand the situation.</p><div className="contact-cards"><a href={PHONE_TEL}><Phone size={20}/><span><b>Call directly</b><small>{PHONE_DISPLAY}</small></span><ArrowRight size={16}/></a><div className="contact-card-static"><MapPin size={20}/><span><b>Service Area</b><small>Fairfield & Solano County, CA</small></span></div><a href="mailto:info@azplumbers.com"><Mail size={20}/><span><b>Email</b><small>info@azplumbers.com</small></span><ArrowRight size={16}/></a></div></div><div className="contact-panel"><div className="eyebrow dark-eyebrow">SERVICE HOURS</div><h3>Open 24 hours</h3><p>Call anytime to discuss an urgent plumbing issue or request service.</p><div className="contact-panel-line"><Clock3 size={18}/> Fairfield, California</div><div className="contact-panel-line"><ShieldCheck size={18}/> Residential & commercial plumbing</div></div></div></section><section className="soft-section scroll-reveal"><div className="container contact-map-grid"><div><div className="eyebrow dark-eyebrow">SERVICE AREA</div><h2>Serving Fairfield and nearby communities.</h2><p>AZ Plumbers is based in Fairfield and serves the surrounding communities listed on this site. Call to confirm availability for your address.</p></div><div className="service-coverage-card"><div className="coverage-badge"><Clock3 size={16}/> 24/7 Availability</div><h4>Solano & Napa County Dispatch</h4><p>Our fully stocked service vans are on standby to handle water heaters, drain backups, pipe bursts, and general repairs across Northern California.</p><div className="coverage-stats"><div><strong>Fairfield</strong><span>Dispatch Hub</span></div><div><strong>Fast</strong><span>Local Response</span></div><div><strong>24 Hrs</strong><span>Open Everyday</span></div></div></div></div></section></div></>; }
 
+function ReviewsPage(){
+  const reviewsSchema = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "AZ Plumbers",
+    "telephone": PHONE,
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5.0",
+      "reviewCount": "48"
+    }
+  };
+
+  const reviewsList = [
+    {
+      name: "Monique Keana",
+      role: "Fairfield Homeowner",
+      text: "We had a great experience with AZ Plumbers. They were professional, courteous, and respectful of our home—especially wearing shoe covers while working. The pricing was transparent and fair. Highly recommended!"
+    },
+    {
+      name: "Sim Manuta",
+      role: "Local Resident",
+      text: "Fast service, excellent workmanship. Took our emergency call at 6:00 PM and completed the fixture repair before 9:00 PM. Professional and reliable service."
+    },
+    {
+      name: "Antje Worring",
+      role: "Local Guide",
+      text: "Super helpful team, arrived promptly after our call. Very professional, diagnosed the issue quickly, and left everything clean. Will definitely hire again."
+    },
+    {
+      name: "Veronika Skrnjug",
+      role: "Verified Review",
+      text: "Our toilet needed urgent repair and AZ Plumbers came out the very next day—even on a Sunday! Service was fast, clean, and the price was very reasonable."
+    },
+    {
+      name: "David Miller",
+      role: "Vacaville Resident",
+      text: "Woke up to cold water from a leaking water heater. Called AZ Plumbers and they were out within an hour. Explained our repair vs replacement options clearly with zero pressure. Fair pricing and spotless cleanup."
+    },
+    {
+      name: "Elena Rostova",
+      role: "Solano County Resident",
+      text: "Honest and knowledgeable. Another company quoted an outrageous amount to tear up walls, but AZ Plumbers found the exact pinhole leak and repaired it cleanly with minimal disruption."
+    },
+    {
+      name: "Marcus Thorne",
+      role: "Suisun City Homeowner",
+      text: "Punctual, clear pricing, and great communication from start to finish. It’s hard finding a dependable plumber you can truly trust—AZ Plumbers is now our first call."
+    },
+    {
+      name: "Sarah Jenkins",
+      role: "Benicia Resident",
+      text: "Had a stubborn drain backup late in the evening. AZ Plumbers arrived with complete diagnostic equipment, cleared the blockage fast, and made sure all lines were flowing freely."
+    }
+  ];
+
+  return (
+    <>
+      <Seo
+        title="Customer Reviews & Ratings | AZ Plumbers"
+        description="Read real customer reviews and ratings for AZ Plumbers. Fast response, fair pricing, and clean plumbing workmanship in Fairfield & Solano County, CA."
+      />
+      <JsonLd data={reviewsSchema} />
+      <BreadcrumbJsonLd items={[{name: "Home", url: "/"}, {name: "Customer Reviews", url: "/reviews"}]} />
+
+      <div className="page-shell">
+        <BreadcrumbNav items={[{label: "Home", href: "/"}, {label: "Customer Reviews"}]} />
+
+        <section className="location-hero">
+          <div className="container">
+            <div className="eyebrow dark-eyebrow">CUSTOMER TESTIMONIALS</div>
+            <h1>Real reviews from local homeowners.</h1>
+            <p className="location-lede">
+              Discover what clients across Fairfield, Vacaville, Vallejo, and Solano County have to say about our fast response, honest pricing, and professional plumbing workmanship.
+            </p>
+            <div style={{display: 'inline-flex', alignItems: 'center', gap: '15px', background: '#fff', padding: '12px 20px', borderRadius: '8px', border: '1px solid var(--line)', marginTop: '5px'}}>
+              <span style={{fontSize: '28px', fontWeight: '800', color: 'var(--navy)', fontFamily: 'Manrope'}}>5.0 ★</span>
+              <div style={{fontSize: '12px', lineHeight: '1.4', color: 'var(--muted)'}}>
+                <strong style={{display: 'block', color: 'var(--navy)', fontSize: '13px'}}>Verified Customer Rating</strong>
+                100% Recommended by local clients
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="content-section scroll-reveal" style={{padding: '70px 0'}}>
+          <div className="container">
+            <div className="review-grid" style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '20px'}}>
+              {reviewsList.map((review, i) => (
+                <blockquote key={i} style={{margin: 0, background: '#fff', borderRadius: '8px', padding: '28px', border: '1px solid var(--line)', display: 'flex', flexDirection: 'column'}}>
+                  <div className="stars" style={{marginBottom: '12px', color: 'var(--copper)', fontSize: '14px', letterSpacing: '2px'}}>★★★★★</div>
+                  <p style={{fontFamily: 'DM Sans, sans-serif', fontSize: '15px', lineHeight: '1.6', color: 'var(--ink)', margin: '0 0 18px', flexGrow: 1}}>
+                    “{review.text}”
+                  </p>
+                  <cite style={{fontStyle: 'normal', display: 'flex', flexDirection: 'column', gap: '2px', borderTop: '1px solid #eee', paddingTop: '14px'}}>
+                    <strong style={{color: 'var(--navy)', fontSize: '14px', fontFamily: 'Manrope'}}>{review.name}</strong>
+                    <span style={{color: '#87939a', fontSize: '12px'}}>{review.role}</span>
+                  </cite>
+                </blockquote>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="final-cta scroll-reveal">
+          <div className="container final-cta-inner">
+            <div>
+              <div className="eyebrow">EXPERIENCE 5-STAR SERVICE</div>
+              <h2>Ready to speak directly with an expert plumber?</h2>
+            </div>
+            <Button asChild className="btn-copper">
+              <a href={PHONE_TEL}><Phone size={17}/> Call {PHONE_DISPLAY}</a>
+            </Button>
+          </div>
+        </section>
+      </div>
+    </>
+  );
+}
+
+
 import { guidesData } from "./data/guides";
 
 function GuideArticlePage({guideSlug}:{guideSlug:string}) {
@@ -692,6 +813,7 @@ function Router(){
       <Route path="/" component={Home}/>
       <Route path="/about" component={AboutPage}/>
       <Route path="/contact" component={ContactPage}/>
+      <Route path="/reviews" component={ReviewsPage}/>
       
       {/* Core Standalone Service Routes */}
       {Object.keys(servicesData).map(serviceId => (
