@@ -1,7 +1,7 @@
 import { Link } from "wouter";
 import { ArrowRight, BadgeCheck, Bath, ChevronDown, Clock3, Droplets, Flame, House, MapPin, Phone, ShieldCheck, Sparkles, Wrench, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { MAPS_URL, PHONE_DISPLAY, PHONE_TEL, Seo, JsonLd } from "../App";
+import { PHONE_DISPLAY, PHONE_TEL, Seo, JsonLd } from "../App";
 
 const services = [
   {title:"Emergency Plumbing", text:"A calm, rapid response for active leaks, burst pipes, and urgent plumbing issues.", icon:Zap, href:"/emergency-plumber"},
@@ -19,7 +19,7 @@ const services = [
 ];
 
 const faqs = [
-  ["What areas does A2Z Plumbing serve?", "A2Z Plumbing is based in Fairfield, CA, and serves Fairfield, Suisun City, Vacaville, Vallejo, Benicia, Dixon, Rio Vista, American Canyon, Napa, and Martinez."],
+  ["What areas does AZ Plumbers serve?", "AZ Plumbers is based in Fairfield, CA, and serves Fairfield, Suisun City, Vacaville, Vallejo, Benicia, Dixon, Rio Vista, American Canyon, Napa, and Martinez."],
   ["What should I do if water is actively leaking?", "If it is safe to do so, locate and shut off the nearest fixture valve or the main water shut-off valve, clear the area of valuables, and call us directly."],
   ["Do you handle both small repairs and major installations?", "Yes. We assist homeowners and businesses with everything from simple faucet drip repairs to full water heater installations, drain clearing, and whole-home repiping."],
   ["How quickly can you respond to an emergency in Fairfield?", "Because Fairfield is our home base, we prioritize urgent local calls and often arrive on the same day. Call +1 510-544-1054 for real-time dispatch availability."],
@@ -29,15 +29,14 @@ export default function Home(){
   const localBusinessSchema = {
     "@context": "https://schema.org",
     "@type": "Plumber",
-    "name": "A2Z Plumbing LLC",
+    "name": "AZ Plumbers",
     "image": "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=1200&q=80",
-    "@id": "https://www.a2zplumbingllc.com",
-    "url": "https://www.a2zplumbingllc.com",
+    "@id": "https://www.azplumbers.com",
+    "url": "https://www.azplumbers.com",
     "telephone": "+1-510-544-1054",
     "priceRange": "$$",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "4970 Paramount Ct",
       "addressLocality": "Fairfield",
       "addressRegion": "CA",
       "postalCode": "94534",
@@ -62,9 +61,6 @@ export default function Home(){
       "opens": "00:00",
       "closes": "23:59"
     },
-    "sameAs": [
-      "https://maps.app.goo.gl/9HrL1aAYbxrksA7t7"
-    ],
     "areaServed": [
       { "@type": "City", "name": "Fairfield" },
       { "@type": "City", "name": "Suisun City" },
@@ -82,15 +78,15 @@ export default function Home(){
   return (
     <>
       <Seo 
-        title="A2Z Plumbing LLC | Plumber in Fairfield, CA" 
-        description="A2Z Plumbing LLC provides reliable plumbing repairs, drain cleaning, water heater service, and emergency plumbing in Fairfield, CA. Call (510) 544-1054." 
+        title="AZ Plumbers | Plumber in Fairfield, CA" 
+        description="AZ Plumbers provides reliable plumbing repairs, drain cleaning, water heater service, and emergency plumbing in Fairfield, CA. Call (510) 544-1054." 
       />
       <JsonLd data={localBusinessSchema} />
       
       <div className="home">
         {/* Hero Section */}
         <section className="hero">
-          <div className="hero-watermark">A2Z</div>
+          <div className="hero-watermark">AZ</div>
           <div className="container hero-grid">
             <div className="hero-content">
               <div className="eyebrow"><span className="eyebrow-dot"/> YOUR LOCAL PLUMBING SPECIALIST IN FAIRFIELD</div>
@@ -110,7 +106,7 @@ export default function Home(){
               <div className="hero-card">
                 <span className="hero-card-icon"><Sparkles size={19}/></span>
                 <div><b>Need a plumber fast?</b><span>Direct support for Fairfield residents.</span></div>
-                <a href={PHONE_TEL} aria-label="Call A2Z Plumbing LLC"><ArrowRight size={18}/></a>
+                <a href={PHONE_TEL} aria-label="Call AZ Plumbers"><ArrowRight size={18}/></a>
               </div>
             </div>
           </div>
@@ -124,14 +120,14 @@ export default function Home(){
         {/* Intro Section */}
         <section className="intro-section scroll-reveal">
           <div className="container intro-grid">
-            <div className="intro-number">01 <span>ABOUT A2Z</span></div>
+            <div className="intro-number">01 <span>ABOUT AZ PLUMBERS</span></div>
             <div>
               <div className="eyebrow dark-eyebrow">LOCAL EXPERTISE & INTEGRITY</div>
               <h2>Your trusted local plumber in Fairfield, CA.</h2>
             </div>
             <div className="intro-copy">
-              <p>When a plumbing issue arises, you want a local Fairfield plumber who listens carefully, explains the cause, and provides a straightforward solution. A2Z Plumbing LLC provides trusted residential and commercial plumbing support across Solano and Napa counties.</p>
-              <a className="text-link" href="#why-us">Why local homeowners choose A2Z <ArrowRight size={16}/></a>
+              <p>When a plumbing issue arises, you want a local Fairfield plumber who listens carefully, explains the cause, and provides a straightforward solution. AZ Plumbers provides trusted residential and commercial plumbing support across Solano and Napa counties.</p>
+              <a className="text-link" href="#why-us">Why local homeowners choose AZ Plumbers <ArrowRight size={16}/></a>
             </div>
           </div>
         </section>
@@ -184,7 +180,7 @@ export default function Home(){
         <section id="why-us" className="why-section scroll-reveal">
           <div className="container">
             <div className="why-heading">
-              <div className="eyebrow dark-eyebrow">THE A2Z STANDARDS</div>
+              <div className="eyebrow dark-eyebrow">THE AZ PLUMBERS STANDARDS</div>
               <h2>Professional service without the runaround.</h2>
             </div>
             <div className="why-grid">
@@ -202,9 +198,9 @@ export default function Home(){
             <div>
               <div className="eyebrow dark-eyebrow">OUR SERVICE COVERAGE</div>
               <h2>Serving Fairfield and Solano County.</h2>
-              <p>A2Z Plumbing LLC is a licensed local plumbing company based in Fairfield, CA. We serve residential and commercial clients across Solano, Napa, and Contra Costa counties.</p>
+              <p>AZ Plumbers is a licensed local plumbing company based in Fairfield, CA. We serve residential and commercial clients across Solano, Napa, and Contra Costa counties.</p>
               <div className="authority-details">
-                <div className="detail-box"><MapPin size={20}/><div><strong>A2Z Plumbing LLC</strong><span>4970 Paramount Ct<br/>Fairfield, CA 94534</span></div></div>
+                <div className="detail-box"><MapPin size={20}/><div><strong>AZ Plumbers</strong><span>Fairfield & Solano County, CA</span></div></div>
                 <div className="detail-box"><Phone size={20}/><div><strong>Direct Phone</strong><a href={PHONE_TEL}>{PHONE_DISPLAY}</a></div></div>
                 <div className="detail-box"><BadgeCheck size={20}/><div><strong>Licensed & Verified</strong><span>CA CSLB License #1132505<br/><small>(Exp 2/28/2027)</small></span></div></div>
                 <div className="detail-box">
@@ -224,10 +220,16 @@ export default function Home(){
               </div>
             </div>
             <div className="authority-visual">
-              <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=1200&q=80" alt="A2Z Plumbing LLC headquarters in Fairfield CA" className="authority-img" loading="lazy"/>
-              <div className="map-frame" style={{height: '250px'}}>
-                <iframe title="A2Z Plumbing LLC location map" src="https://www.google.com/maps?q=A2Z+Plumbing+LLC,+4970+Paramount+Ct,+Fairfield,+CA+94534&output=embed" loading="lazy" referrerPolicy="no-referrer-when-downgrade"/>
-                <a className="map-overlay" href={MAPS_URL} target="_blank" rel="noreferrer"><MapPin size={16}/> View on Google Maps <ArrowRight size={15}/></a>
+              <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=1200&q=80" alt="AZ Plumbers team in Fairfield CA" className="authority-img" loading="lazy"/>
+              <div className="service-coverage-card">
+                <div className="coverage-badge"><ShieldCheck size={16}/> Certified Local Plumbing</div>
+                <h4>Complete Area Coverage</h4>
+                <p>Prompt, expert plumbing dispatched daily throughout Fairfield, Vacaville, Vallejo, Suisun City, Napa & surrounding communities.</p>
+                <div className="coverage-stats">
+                  <div><strong>24/7</strong><span>Emergency Dispatch</span></div>
+                  <div><strong>10+</strong><span>Cities Covered</span></div>
+                  <div><strong>100%</strong><span>Satisfaction Focus</span></div>
+                </div>
               </div>
             </div>
           </div>
@@ -239,7 +241,7 @@ export default function Home(){
             <div className="section-heading review-heading">
               <div>
                 <div className="eyebrow dark-eyebrow">CUSTOMER TESTIMONIALS</div>
-                <h2>What local homeowners say about A2Z.</h2>
+                <h2>What local homeowners say about AZ Plumbers.</h2>
               </div>
               <div className="review-score">
                 <strong>5.0 ★</strong>
@@ -249,7 +251,7 @@ export default function Home(){
             <div className="review-grid">
               <blockquote>
                 <div className="stars">★★★★★</div>
-                <p>“We had a great experience with A2Z Plumbing. They were professional, courteous, and respectful of our home—especially wearing shoe covers while working. The pricing was transparent and fair. Highly recommended!”</p>
+                <p>“We had a great experience with AZ Plumbers. They were professional, courteous, and respectful of our home—especially wearing shoe covers while working. The pricing was transparent and fair. Highly recommended!”</p>
                 <cite><strong>Monique Keana</strong><span>Fairfield Homeowner</span></cite>
               </blockquote>
               <blockquote>
@@ -264,7 +266,7 @@ export default function Home(){
               </blockquote>
               <blockquote>
                 <div className="stars">★★★★★</div>
-                <p>“Our toilet needed urgent repair and A2Z came out the very next day—even on a Sunday! Service was fast, clean, and the price was very reasonable.”</p>
+                <p>“Our toilet needed urgent repair and AZ Plumbers came out the very next day—even on a Sunday! Service was fast, clean, and the price was very reasonable.”</p>
                 <cite><strong>Veronika Skrnjug</strong><span>Verified Review</span></cite>
               </blockquote>
             </div>

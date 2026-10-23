@@ -39,7 +39,7 @@ const today = new Date().toISOString().split('T')[0];
 let xml = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';
 urls.forEach(u => {
   // Ensure we do not add trailing slashes to non-root URLs (SEO best practice)
-  const loc = u === '/' ? 'https://www.a2zplumbingllc.com/' : `https://www.a2zplumbingllc.com${u}`;
+  const loc = u === '/' ? 'https://www.azplumbers.com/' : `https://www.azplumbers.com${u}`;
   xml += `  <url>\n    <loc>${loc}</loc>\n    <lastmod>${today}</lastmod>\n  </url>\n`;
 });
 xml += '</urlset>';
