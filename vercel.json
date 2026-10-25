@@ -3,20 +3,6 @@
   "outputDirectory": "dist/public",
   "framework": "vite",
   "trailingSlash": false,
-  "redirects": [
-    { "source": "/emergency-plumber", "destination": "/emergency-plumber-fairfield-ca", "permanent": true },
-    { "source": "/drain-cleaning", "destination": "/drain-cleaning-fairfield-ca", "permanent": true },
-    { "source": "/leak-detection-repair", "destination": "/leak-detection-repair-fairfield-ca", "permanent": true },
-    { "source": "/water-heater-repair", "destination": "/water-heater-repair-fairfield-ca", "permanent": true },
-    { "source": "/water-heater-installation", "destination": "/water-heater-installation-fairfield-ca", "permanent": true },
-    { "source": "/sewer-line-repair", "destination": "/sewer-line-repair-fairfield-ca", "permanent": true },
-    { "source": "/repiping", "destination": "/repiping-fairfield-ca", "permanent": true },
-    { "source": "/toilet-repair", "destination": "/toilet-repair-fairfield-ca", "permanent": true },
-    { "source": "/faucet-repair", "destination": "/faucet-repair-fairfield-ca", "permanent": true },
-    { "source": "/garbage-disposal-repair", "destination": "/garbage-disposal-repair-fairfield-ca", "permanent": true },
-    { "source": "/residential-plumbing", "destination": "/residential-plumbing-fairfield-ca", "permanent": true },
-    { "source": "/plumbing-repair", "destination": "/plumbing-repair-fairfield-ca", "permanent": true }
-  ],
   "rewrites": [
     {
       "source": "/(.*)",

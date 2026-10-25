@@ -821,14 +821,6 @@ Object.keys(servicesData).forEach(serviceId => {
   });
 });
 
-function RedirectTo({ to }: { to: string }) {
-  const [, setLocation] = useLocation();
-  useEffect(() => {
-    setLocation(to, { replace: true });
-  }, [to, setLocation]);
-  return null;
-}
-
 function Router(){
   return (
     <Switch>
@@ -837,10 +829,10 @@ function Router(){
       <Route path="/contact" component={ContactPage}/>
       <Route path="/reviews" component={ReviewsPage}/>
       
-      {/* Legacy Core Service Routes (Redirected to main Fairfield, CA service pages) */}
+      {/* Core Standalone Service Routes */}
       {Object.keys(servicesData).map(serviceId => (
         <Route key={serviceId} path={`/${serviceId}`}>
-          <RedirectTo to={`/${serviceId}-fairfield-ca`}/>
+          <CoreServicePage serviceId={serviceId}/>
         </Route>
       ))}
 

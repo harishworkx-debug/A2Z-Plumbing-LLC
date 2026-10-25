@@ -30,15 +30,17 @@ const guides = [
 
 const urls = ['/', '/about', '/contact', '/reviews'];
 
-// Primary city landing pages
+// 1. Add core standalone service pages (12 pages)
+coreServices.forEach(s => urls.push('/' + s));
 
-// Add primary city landing pages
+// 2. Add primary city landing pages (10 pages)
 cities.forEach(c => urls.push('/plumber-' + c + '-ca'));
 
-// Add educational guides
+// 3. Add educational guides (9 pages)
 guides.forEach(g => urls.push('/guides/' + g));
 
-// Add all local city-service landing pages (12 services x 10 cities = 120 pages)
+// 4. Add all local city-service landing pages (12 services x 10 cities = 120 pages)
+// Includes all Fairfield main location service pages: /service-fairfield-ca
 coreServices.forEach(s => {
   cities.forEach(c => {
     urls.push('/' + s + '-' + c + '-ca');
