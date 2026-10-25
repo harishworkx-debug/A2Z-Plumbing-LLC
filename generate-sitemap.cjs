@@ -30,8 +30,7 @@ const guides = [
 
 const urls = ['/', '/about', '/contact', '/reviews'];
 
-// Add core standalone service pages
-coreServices.forEach(s => urls.push('/' + s));
+// Primary city landing pages
 
 // Add primary city landing pages
 cities.forEach(c => urls.push('/plumber-' + c + '-ca'));

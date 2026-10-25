@@ -4,18 +4,18 @@ import { Button } from "@/components/ui/button";
 import { PHONE_DISPLAY, PHONE_TEL, SITE_URL, Seo, JsonLd } from "../App";
 
 const services = [
-  {title:"Emergency Plumbing", text:"A calm, rapid response for active leaks, burst pipes, and urgent plumbing issues.", icon:Zap, href:"/emergency-plumber"},
-  {title:"Drain Cleaning", text:"Professional help for slow sinks, backed-up showers, recurring clogs, and sewer line issues.", icon:Droplets, href:"/drain-cleaning"},
-  {title:"Leak Detection & Repair", text:"Accurate non-invasive detection and repair for hidden water leaks in walls and slabs.", icon:ShieldCheck, href:"/leak-detection-repair"},
-  {title:"Water Heater Repair", text:"Restore hot water and address tank leaks, pilot issues, and inconsistent temperatures.", icon:Flame, href:"/water-heater-repair"},
-  {title:"Water Heater Installation", text:"Expert installation of standard gas/electric tanks and high-efficiency tankless units.", icon:Sparkles, href:"/water-heater-installation"},
-  {title:"Sewer Line Repair", text:"Solutions for tree root intrusion, line blockages, and main sewer backups.", icon:Wrench, href:"/sewer-line-repair"},
-  {title:"Repiping Services", text:"Whole-home and partial pipe replacements with modern PEX or copper supply lines.", icon:House, href:"/repiping"},
-  {title:"Toilet Repair", text:"Fix running, rocking, clogging, leaking, and disruptive toilet problems.", icon:Bath, href:"/toilet-repair"},
-  {title:"Faucet Repair", text:"Quiet drips, replace cartridges, fix under-sink leaks, and upgrade kitchen/bath fixtures.", icon:Clock3, href:"/faucet-repair"},
-  {title:"Garbage Disposal Repair", text:"Troubleshoot humming, jammed, leaking, or non-starting kitchen disposals.", icon:MapPin, href:"/garbage-disposal-repair"},
-  {title:"Residential Plumbing", text:"Whole-home plumbing support for repairs, fixtures, leaks, and everyday maintenance.", icon:House, href:"/residential-plumbing"},
-  {title:"Plumbing Repair", text:"Practical repair support for noisy, slow, leaking, or unreliable plumbing systems.", icon:Wrench, href:"/plumbing-repair"},
+  {title:"Emergency Plumbing", text:"A calm, rapid response for active leaks, burst pipes, and urgent plumbing issues.", icon:Zap, href:"/emergency-plumber-fairfield-ca"},
+  {title:"Drain Cleaning", text:"Professional help for slow sinks, backed-up showers, recurring clogs, and sewer line issues.", icon:Droplets, href:"/drain-cleaning-fairfield-ca"},
+  {title:"Leak Detection & Repair", text:"Accurate non-invasive detection and repair for hidden water leaks in walls and slabs.", icon:ShieldCheck, href:"/leak-detection-repair-fairfield-ca"},
+  {title:"Water Heater Repair", text:"Restore hot water and address tank leaks, pilot issues, and inconsistent temperatures.", icon:Flame, href:"/water-heater-repair-fairfield-ca"},
+  {title:"Water Heater Installation", text:"Expert installation of standard gas/electric tanks and high-efficiency tankless units.", icon:Sparkles, href:"/water-heater-installation-fairfield-ca"},
+  {title:"Sewer Line Repair", text:"Solutions for tree root intrusion, line blockages, and main sewer backups.", icon:Wrench, href:"/sewer-line-repair-fairfield-ca"},
+  {title:"Repiping Services", text:"Whole-home and partial pipe replacements with modern PEX or copper supply lines.", icon:House, href:"/repiping-fairfield-ca"},
+  {title:"Toilet Repair", text:"Fix running, rocking, clogging, leaking, and disruptive toilet problems.", icon:Bath, href:"/toilet-repair-fairfield-ca"},
+  {title:"Faucet Repair", text:"Quiet drips, replace cartridges, fix under-sink leaks, and upgrade kitchen/bath fixtures.", icon:Clock3, href:"/faucet-repair-fairfield-ca"},
+  {title:"Garbage Disposal Repair", text:"Troubleshoot humming, jammed, leaking, or non-starting kitchen disposals.", icon:MapPin, href:"/garbage-disposal-repair-fairfield-ca"},
+  {title:"Residential Plumbing", text:"Whole-home plumbing support for repairs, fixtures, leaks, and everyday maintenance.", icon:House, href:"/residential-plumbing-fairfield-ca"},
+  {title:"Plumbing Repair", text:"Practical repair support for noisy, slow, leaking, or unreliable plumbing systems.", icon:Wrench, href:"/plumbing-repair-fairfield-ca"},
 ];
 
 const faqs = [

@@ -15,18 +15,18 @@ export const PHONE_DISPLAY = "(510) 544-1054";
 export const PHONE_TEL = "tel:+15105441054";
 
 export const mainServices = [
-  ["Emergency Plumbing", "/emergency-plumber"],
-  ["Drain Cleaning", "/drain-cleaning"],
-  ["Leak Detection & Repair", "/leak-detection-repair"],
-  ["Water Heater Repair", "/water-heater-repair"],
-  ["Water Heater Installation", "/water-heater-installation"],
-  ["Sewer Line Repair", "/sewer-line-repair"],
-  ["Repiping Services", "/repiping"],
-  ["Toilet Repair", "/toilet-repair"],
-  ["Faucet Repair", "/faucet-repair"],
-  ["Garbage Disposal Repair", "/garbage-disposal-repair"],
-  ["Residential Plumbing", "/residential-plumbing"],
-  ["Plumbing Repair", "/plumbing-repair"],
+  ["Emergency Plumbing", "/emergency-plumber-fairfield-ca"],
+  ["Drain Cleaning", "/drain-cleaning-fairfield-ca"],
+  ["Leak Detection & Repair", "/leak-detection-repair-fairfield-ca"],
+  ["Water Heater Repair", "/water-heater-repair-fairfield-ca"],
+  ["Water Heater Installation", "/water-heater-installation-fairfield-ca"],
+  ["Sewer Line Repair", "/sewer-line-repair-fairfield-ca"],
+  ["Repiping Services", "/repiping-fairfield-ca"],
+  ["Toilet Repair", "/toilet-repair-fairfield-ca"],
+  ["Faucet Repair", "/faucet-repair-fairfield-ca"],
+  ["Garbage Disposal Repair", "/garbage-disposal-repair-fairfield-ca"],
+  ["Residential Plumbing", "/residential-plumbing-fairfield-ca"],
+  ["Plumbing Repair", "/plumbing-repair-fairfield-ca"],
 ] as const;
 
 import { locationPagesList, cityData } from "./data/locations";
@@ -324,14 +324,23 @@ function ServicePage({serviceId, cityId}:{serviceId:string, cityId:string}) {
     }
   }; 
   
+  const isMainLocation = cityName === "Fairfield";
+  const breadcrumbItems = isMainLocation
+    ? [{ name: "Home", url: "/" }, { name: `${service.name} in ${cityName}`, url: `/${slug}` }]
+    : [{ name: "Home", url: "/" }, { name: service.name, url: `/${serviceId}-fairfield-ca` }, { name: cityName, url: `/${slug}` }];
+
+  const navItems = isMainLocation
+    ? [{ label: "Home", href: "/" }, { label: `${service.name} in ${cityName}` }]
+    : [{ label: "Home", href: "/" }, { label: service.name, href: `/${serviceId}-fairfield-ca` }, { label: cityName }];
+
   return (
     <>
       <Seo title={`${fullTitle} | A2Z Plumbing LLC`} description={fullDesc} canonicalUrl={canonicalUrl} image={service.image} />
       <JsonLd data={schema}/>
-      <BreadcrumbJsonLd items={[{name:"Home", url:"/"}, {name:service.name, url:`/${serviceId}`}, {name:cityName, url:`/${cityInfo.slug}`}]} />
+      <BreadcrumbJsonLd items={breadcrumbItems} />
       
       <div className="page-shell">
-        <BreadcrumbNav items={[{label:"Home", href:"/"}, {label:service.name, href:`/${serviceId}`}, {label:cityName}]} />
+        <BreadcrumbNav items={navItems} />
         
         <main>
           <section className="service-hero">
@@ -414,9 +423,9 @@ function ServicePage({serviceId, cityId}:{serviceId:string, cityId:string}) {
                 </div>
               </div>
               <div className="related-grid" style={{gridTemplateColumns: 'repeat(4, 1fr)'}}>
-                 {locationPagesList.slice(0, 8).map(city => {
-                    const locSlug = cityData[city].slug;
-                    return <Link className="related-card" style={{padding: '12px 15px', fontSize: '13px'}} href={`/${locSlug}`} key={city}><span>{service.name} in {city}</span><ArrowRight size={14}/></Link>
+                 {locationPagesList.filter(city => city !== cityName).slice(0, 8).map(city => {
+                    const locSlug = cityData[city].slug.replace("plumber-", "");
+                    return <Link className="related-card" style={{padding: '12px 15px', fontSize: '13px'}} href={`/${serviceId}-${locSlug}`} key={city}><span>{service.name} in {city}</span><ArrowRight size={14}/></Link>
                  })}
               </div>
              </div>
@@ -507,8 +516,10 @@ function LocationPage({city}:{city:string}) {
             </div>
             <div className="service-grid">
               {mainServices.slice(0,6).map(([label,href])=>{
+                const citySlug = data.slug.replace("plumber-", "");
+                const localHref = href.replace("-fairfield-ca", `-${citySlug}`);
                 return (
-                  <Link href={href} className="service-card" key={href}>
+                  <Link href={localHref} className="service-card" key={href}>
                     <span className="icon-box"><Wrench size={20}/></span>
                     <h3>{label}</h3>
                     <p>Clear guidance and practical plumbing support in {city}.</p>
@@ -773,7 +784,7 @@ function GuideArticlePage({guideSlug}:{guideSlug:string}) {
                 <p>If you prefer to have a licensed plumber inspect or repair your system, A2Z Plumbing LLC is ready to help.</p>
                 <div style={{marginTop: '20px', display: 'flex', gap: '15px', alignItems: 'center'}}>
                   <Button asChild className="btn-copper"><a href={PHONE_TEL}><Phone size={16}/> Call {PHONE_DISPLAY}</a></Button>
-                  <Link href={`/${guide.relatedServiceId}`} className="text-link">Explore related service <ArrowRight size={15}/></Link>
+                  <Link href={`/${guide.relatedServiceId}-fairfield-ca`} className="text-link">Explore related service <ArrowRight size={15}/></Link>
                 </div>
               </div>
 
@@ -810,6 +821,14 @@ Object.keys(servicesData).forEach(serviceId => {
   });
 });
 
+function RedirectTo({ to }: { to: string }) {
+  const [, setLocation] = useLocation();
+  useEffect(() => {
+    setLocation(to, { replace: true });
+  }, [to, setLocation]);
+  return null;
+}
+
 function Router(){
   return (
     <Switch>
@@ -818,10 +837,10 @@ function Router(){
       <Route path="/contact" component={ContactPage}/>
       <Route path="/reviews" component={ReviewsPage}/>
       
-      {/* Core Standalone Service Routes */}
+      {/* Legacy Core Service Routes (Redirected to main Fairfield, CA service pages) */}
       {Object.keys(servicesData).map(serviceId => (
         <Route key={serviceId} path={`/${serviceId}`}>
-          <CoreServicePage serviceId={serviceId}/>
+          <RedirectTo to={`/${serviceId}-fairfield-ca`}/>
         </Route>
       ))}
 
