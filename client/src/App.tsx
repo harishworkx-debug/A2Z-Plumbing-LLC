@@ -7,8 +7,11 @@ import {
 import { Button } from "@/components/ui/button";
 import Home from "./pages/Home";
 
-export const PHONE = "+1 510-544-1054";
-export const PHONE_DISPLAY = "510-544-1054";
+export const SITE_URL = "https://www.a2zplumbingllc.com";
+export const BRAND_NAME = "A2Z Plumbing LLC";
+export const BRAND_SHORT = "A2Z Plumbing";
+export const PHONE = "(510) 544-1054";
+export const PHONE_DISPLAY = "(510) 544-1054";
 export const PHONE_TEL = "tel:+15105441054";
 
 export const mainServices = [
@@ -41,17 +44,17 @@ function Header() {
     <div className="topbar"><div className="container topbar-inner"><span><Clock3 size={14}/> Open 24 hours</span><span className="topbar-sep">•</span><span>Serving Fairfield & Solano County</span><a href={PHONE_TEL}><Phone size={14}/> {PHONE_DISPLAY}</a></div></div>
     <header className="site-header">
       <div className="container nav-inner">
-        <Link href="/" className="brand" aria-label="AZ Plumbers home"><span className="brand-mark"><Droplets size={19}/></span><span>AZ <b>PLUMBERS</b></span></Link>
-        <nav className="desktop-nav"><div className="nav-dropdown"><button>Services <ChevronDown size={14}/></button><div className="dropdown-menu services-menu">{mainServices.map(([label, href]) => <Link key={href} href={href}>{label}</Link>)}</div></div><Link href="/about">Why AZ Plumbers</Link><div className="nav-dropdown"><button>Service Areas <ChevronDown size={14}/></button><div className="dropdown-menu areas-menu">{locationPages.map(([label, href]) => <Link key={href} href={href}>{label}</Link>)}</div></div><Link href="/contact">Contact</Link><a href="/#faqs">FAQs</a></nav>
+        <Link href="/" className="brand" aria-label="A2Z Plumbing LLC home"><span className="brand-mark"><Droplets size={19}/></span><span>A2Z <b>PLUMBING</b></span></Link>
+        <nav className="desktop-nav"><div className="nav-dropdown"><button>Services <ChevronDown size={14}/></button><div className="dropdown-menu services-menu">{mainServices.map(([label, href]) => <Link key={href} href={href}>{label}</Link>)}</div></div><Link href="/about">Why A2Z Plumbing</Link><div className="nav-dropdown"><button>Service Areas <ChevronDown size={14}/></button><div className="dropdown-menu areas-menu">{locationPages.map(([label, href]) => <Link key={href} href={href}>{label}</Link>)}</div></div><Link href="/contact">Contact</Link><a href="/#faqs">FAQs</a></nav>
         <div className="nav-actions"><a className="nav-phone" href={PHONE_TEL}><Phone size={16}/> <span>{PHONE_DISPLAY}</span></a><Button asChild className="btn-copper"><a href={PHONE_TEL}>Call Now <ArrowRight size={16}/></a></Button><button className="menu-btn" aria-label={open ? "Close menu" : "Open menu"} onClick={() => setOpen(!open)}>{open ? <X/> : <Menu/>}</button></div>
       </div>
-      {open && <div className="mobile-nav"><div className="mobile-nav-heading">Services</div>{mainServices.map(([label, href]) => <Link key={href} href={href}>{label}</Link>)}<div className="mobile-nav-heading">Service Areas</div>{locationPages.map(([label, href]) => <Link key={href} href={href}>{label}</Link>)}<Link href="/about">Why AZ Plumbers</Link><Link href="/contact">Contact</Link><a href="/#faqs">FAQs</a><a className="mobile-call" href={PHONE_TEL}><Phone size={16}/> Call {PHONE_DISPLAY}</a></div>}
+      {open && <div className="mobile-nav"><div className="mobile-nav-heading">Services</div>{mainServices.map(([label, href]) => <Link key={href} href={href}>{label}</Link>)}<div className="mobile-nav-heading">Service Areas</div>{locationPages.map(([label, href]) => <Link key={href} href={href}>{label}</Link>)}<Link href="/about">Why A2Z Plumbing</Link><Link href="/contact">Contact</Link><a href="/#faqs">FAQs</a><a className="mobile-call" href={PHONE_TEL}><Phone size={16}/> Call {PHONE_DISPLAY}</a></div>}
     </header>
   </>;
 }
 
 function Footer() {
-  return <footer className="footer"><div className="container footer-grid"><div><Link href="/" className="brand brand-light"><span className="brand-mark"><Droplets size={19}/></span><span>AZ <b>PLUMBERS</b></span></Link><p className="footer-lede">Thoughtful plumbing service for the homes and businesses that keep Solano County moving.</p><a className="footer-call" href={PHONE_TEL}><Phone size={16}/> {PHONE_DISPLAY}</a></div><div><h4>Services</h4>{mainServices.map(([label, href]) => <Link key={href} href={href}>{label}</Link>)}</div><div><h4>Service Areas</h4>{locationPages.map(([label, href]) => <Link key={href} href={href}>{label}</Link>)}<Link href="/contact">Schedule Service <ArrowRight size={13}/></Link></div><div><h4>Explore</h4><Link href="/about">Why AZ Plumbers</Link><Link href="/contact">Contact</Link><h4 style={{marginTop: '15px', color: '#fff', fontSize: '1.1rem', marginBottom: '10px'}}>Plumbing Guides</h4><Link href="/guides/water-heater-not-producing-hot-water">Water Heater Issues</Link><Link href="/guides/signs-of-hidden-water-leak">Hidden Leaks</Link><Link href="/guides/how-to-unclog-drain-safely">Drain Cleaning</Link><Link href="/guides/when-to-replace-water-heater">Replace Water Heater</Link><h4 className="footer-subhead" style={{marginTop: '15px'}}>Get in touch</h4><p>Need a plumber? Let’s talk through the issue and the next best step.</p><Button asChild className="btn-copper"><a href={PHONE_TEL}>Speak with a plumber <Phone size={15}/></a></Button></div></div><div className="container footer-bottom"><span>© {new Date().getFullYear()} AZ Plumbers. All rights reserved.</span><span>Fairfield, California</span></div></footer>;
+  return <footer className="footer"><div className="container footer-grid"><div><Link href="/" className="brand brand-light"><span className="brand-mark"><Droplets size={19}/></span><span>A2Z <b>PLUMBING</b></span></Link><p className="footer-lede">Thoughtful plumbing service for the homes and businesses that keep Fairfield and Solano County moving.</p><a className="footer-call" href={PHONE_TEL}><Phone size={16}/> {PHONE_DISPLAY}</a></div><div><h4>Services</h4>{mainServices.map(([label, href]) => <Link key={href} href={href}>{label}</Link>)}</div><div><h4>Service Areas</h4>{locationPages.map(([label, href]) => <Link key={href} href={href}>{label}</Link>)}<Link href="/contact">Schedule Service <ArrowRight size={13}/></Link></div><div><h4>Explore</h4><Link href="/about">Why A2Z Plumbing</Link><Link href="/contact">Contact</Link><h4 style={{marginTop: '15px', color: '#fff', fontSize: '1.1rem', marginBottom: '10px'}}>Plumbing Guides</h4><Link href="/guides/water-heater-not-producing-hot-water">Water Heater Issues</Link><Link href="/guides/signs-of-hidden-water-leak">Hidden Leaks</Link><Link href="/guides/how-to-unclog-drain-safely">Drain Cleaning</Link><Link href="/guides/when-to-replace-water-heater">Replace Water Heater</Link><h4 className="footer-subhead" style={{marginTop: '15px'}}>Get in touch</h4><p>Need a plumber? Let’s talk through the issue and the next best step.</p><Button asChild className="btn-copper"><a href={PHONE_TEL}>Speak with a plumber <Phone size={15}/></a></Button></div></div><div className="container footer-bottom"><span>© {new Date().getFullYear()} A2Z Plumbing LLC. All rights reserved.</span><span>Fairfield, California</span></div></footer>;
 }
 
 
@@ -77,7 +80,7 @@ export function Seo({title, description, canonicalUrl, image = "https://images.u
       if (path.length > 1 && path.endsWith('/')) {
         path = path.slice(0, -1);
       }
-      finalCanonical = `${urlObj.origin}${path}`;
+      finalCanonical = `${SITE_URL}${path}`;
     }
 
     setMeta("description", description);
@@ -123,7 +126,7 @@ export function BreadcrumbJsonLd({items}:{items:{name:string, url:string}[]}) {
       "@type": "ListItem",
       "position": i + 1,
       "name": item.name,
-      "item": item.url.startsWith('http') ? item.url : `https://www.azplumbers.com${item.url}`
+      "item": item.url.startsWith('http') ? item.url : `${SITE_URL}${item.url}`
     }))
   };
   return <JsonLd data={schema} />;
@@ -134,11 +137,11 @@ function CoreServicePage({serviceId}:{serviceId:string}) {
   const service = servicesData[serviceId];
   if(!service) return <NotFound/>;
 
-  const title = `${service.name} Services | AZ Plumbers`;
+  const title = `${service.name} Services | A2Z Plumbing LLC`;
   const cleanTitle = service.title.replace(" in {city}, CA", "").replace(" in {city}", "");
   const cleanDesc = service.description.replace(" in {city}", " in Fairfield, Solano & Napa County");
   const cleanIntro = service.intro.replace(" {city}", " Fairfield and Solano County");
-  const canonicalUrl = `https://www.azplumbers.com/${serviceId}`;
+  const canonicalUrl = `${SITE_URL}/${serviceId}`;
 
   const schema = {
     "@context":"https://schema.org",
@@ -147,7 +150,7 @@ function CoreServicePage({serviceId}:{serviceId:string}) {
     "description": cleanDesc,
     "provider": {
       "@type":"LocalBusiness",
-      "name":"AZ Plumbers",
+      "name":"A2Z Plumbing LLC",
       "telephone":PHONE,
       "address": {
         "@type":"PostalAddress",
@@ -181,7 +184,7 @@ function CoreServicePage({serviceId}:{serviceId:string}) {
                 </div>
               </div>
               <div className="service-hero-image">
-                <img src={service.image} alt={`${service.name} - AZ Plumbers`} />
+                <img src={service.image} alt={`${service.name} - A2Z Plumbing LLC`} />
                 <div className="image-note"><ShieldCheck size={17}/><span>Clear communication.<br/><b>Upfront pricing transparency.</b></span></div>
               </div>
             </div>
@@ -295,8 +298,8 @@ function ServicePage({serviceId, cityId}:{serviceId:string, cityId:string}) {
   const introText = service.intro.replace(/{city}/g, cityName);
   const slug = `${serviceId}-${cityInfo.slug.replace("plumber-", "")}`;
   
-  // Canonicalize city-service matrix back to core service URL to prevent thin/duplicate content penalties
-  const canonicalUrl = `https://www.azplumbers.com/${serviceId}`;
+  // Self-canonical for local service landing page indexing in sitemap
+  const canonicalUrl = `${SITE_URL}/${slug}`;
   
   const schema = {
     "@context":"https://schema.org",
@@ -305,7 +308,7 @@ function ServicePage({serviceId, cityId}:{serviceId:string, cityId:string}) {
     "description": fullDesc,
     "provider": {
       "@type":"LocalBusiness",
-      "name":"AZ Plumbers",
+      "name":"A2Z Plumbing LLC",
       "telephone":PHONE,
       "address": {
         "@type":"PostalAddress",
@@ -323,7 +326,7 @@ function ServicePage({serviceId, cityId}:{serviceId:string, cityId:string}) {
   
   return (
     <>
-      <Seo title={`${fullTitle} | AZ Plumbers`} description={fullDesc} canonicalUrl={canonicalUrl} image={service.image} />
+      <Seo title={`${fullTitle} | A2Z Plumbing LLC`} description={fullDesc} canonicalUrl={canonicalUrl} image={service.image} />
       <JsonLd data={schema}/>
       <BreadcrumbJsonLd items={[{name:"Home", url:"/"}, {name:service.name, url:`/${serviceId}`}, {name:cityName, url:`/${cityInfo.slug}`}]} />
       
@@ -449,7 +452,7 @@ function LocationPage({city}:{city:string}) {
   
   return (
     <>
-      <Seo title={`${title} | AZ Plumbers`} description={data.metaDesc}/>
+      <Seo title={`${title} | A2Z Plumbing LLC`} description={data.metaDesc}/>
       <BreadcrumbJsonLd items={[{name:"Home", url:"/"}, {name:title, url:`/${data.slug}`}]} />
       
       <div className="page-shell">
@@ -482,7 +485,7 @@ function LocationPage({city}:{city:string}) {
               <h3>Serving {city}</h3>
               <p>{data.landmarks}</p>
               <div style={{marginTop: '15px', paddingTop: '15px', borderTop: '1px solid rgba(0,0,0,0.1)'}}>
-                 <strong style={{display: 'block', marginBottom: '5px'}}>AZ Plumbers</strong>
+                 <strong style={{display: 'block', marginBottom: '5px'}}>A2Z Plumbing LLC</strong>
                  <div style={{fontSize: '13px', display: 'flex', flexDirection: 'column', gap: '5px', color: 'var(--muted)'}}>
                    <span>Fairfield, CA & Solano County</span>
                    <a href={PHONE_TEL} style={{color: 'var(--copper)', fontWeight: 700}}>{PHONE_DISPLAY}</a>
@@ -543,11 +546,11 @@ function LocationPage({city}:{city:string}) {
           </div>
         </section>
 
-        {/* Why AZ Plumbers */}
+        {/* Why A2Z Plumbing */}
         <section className="why-section scroll-reveal">
           <div className="container">
             <div className="why-heading">
-              <div className="eyebrow dark-eyebrow">WHY CHOOSE AZ PLUMBERS</div>
+              <div className="eyebrow dark-eyebrow">WHY CHOOSE A2Z PLUMBING</div>
               <h2>Professional service for {city} residents.</h2>
             </div>
             <div className="why-grid">
@@ -591,15 +594,15 @@ function ScrollToTop(){ const [location] = useLocation(); useEffect(() => { wind
 
 function ScrollEffects(){ const [location] = useLocation(); useEffect(() => { const items = Array.from(document.querySelectorAll(".scroll-reveal")); const observer = new IntersectionObserver((entries) => entries.forEach((entry) => { if (entry.isIntersecting) { entry.target.classList.add("is-visible"); observer.unobserve(entry.target); } }), { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }); items.forEach((item) => observer.observe(item)); return () => observer.disconnect(); }, [location]); return null; }
 
-function AboutPage(){ return <><Seo title="Why AZ Plumbers | Fairfield, CA" description="Learn why Fairfield homeowners and businesses call AZ Plumbers for clear, responsive plumbing support."/><BreadcrumbJsonLd items={[{name:"Home", url:"/"}, {name:"About Us", url:"/about"}]} /><div className="page-shell"><BreadcrumbNav items={[{label:"Home", href:"/"}, {label:"About Us"}]} /><section className="location-hero about-hero"><div className="container"><div className="eyebrow dark-eyebrow">WHY AZ PLUMBERS</div><h1>Professional plumbing without the runaround.</h1><p className="location-lede">AZ Plumbers is building a local plumbing company around thoughtful communication, practical repairs, and respect for the homes and businesses we serve.</p><Button asChild className="btn-copper"><a href={PHONE_TEL}><Phone size={17}/> Speak with a plumber</a></Button></div></section><section className="content-section scroll-reveal"><div className="container about-grid"><div><div className="eyebrow dark-eyebrow">OUR APPROACH</div><h2>Start with the real problem.</h2></div><div className="about-copy"><p>Plumbing issues rarely arrive at a convenient time. That is why the first step should be useful: understand what changed, what is urgent, and what options make sense for the property.</p><p>From everyday fixture problems to leaks, drains, water heaters, and larger plumbing questions, AZ Plumbers keeps the experience direct and easy to follow.</p><div className="about-points"><span><ShieldCheck size={18}/> Clear explanations</span><span><Clock3 size={18}/> Responsive service</span><span><House size={18}/> Respect for your space</span></div></div></div></section><section className="soft-section scroll-reveal"><div className="container about-values"><div><div className="eyebrow dark-eyebrow">WHAT YOU CAN EXPECT</div><h2>A better conversation about your plumbing.</h2></div><div className="value-grid"><div><b>01</b><h3>Listen first</h3><p>We start with your description and the signs you are seeing.</p></div><div><b>02</b><h3>Explain clearly</h3><p>We keep the next step practical and easy to understand.</p></div><div><b>03</b><h3>Stay reachable</h3><p>Call when the situation changes or you need help deciding what is urgent.</p></div></div></div></section><section className="final-cta scroll-reveal"><div className="container final-cta-inner"><div><div className="eyebrow">READY WHEN YOU ARE</div><h2>Let’s talk through the next right step.</h2></div><Button asChild className="btn-copper"><a href={PHONE_TEL}><Phone size={17}/> Call {PHONE_DISPLAY}</a></Button></div></section></div></>; }
+function AboutPage(){ return <><Seo title="Why A2Z Plumbing LLC | Fairfield, CA" description="Learn why Fairfield homeowners and businesses call A2Z Plumbing LLC for clear, responsive plumbing support."/><BreadcrumbJsonLd items={[{name:"Home", url:"/"}, {name:"About Us", url:"/about"}]} /><div className="page-shell"><BreadcrumbNav items={[{label:"Home", href:"/"}, {label:"About Us"}]} /><section className="location-hero about-hero"><div className="container"><div className="eyebrow dark-eyebrow">WHY A2Z PLUMBING</div><h1>Professional plumbing without the runaround.</h1><p className="location-lede">A2Z Plumbing LLC is building a local plumbing company around thoughtful communication, practical repairs, and respect for the homes and businesses we serve.</p><Button asChild className="btn-copper"><a href={PHONE_TEL}><Phone size={17}/> Speak with a plumber</a></Button></div></section><section className="content-section scroll-reveal"><div className="container about-grid"><div><div className="eyebrow dark-eyebrow">OUR APPROACH</div><h2>Start with the real problem.</h2></div><div className="about-copy"><p>Plumbing issues rarely arrive at a convenient time. That is why the first step should be useful: understand what changed, what is urgent, and what options make sense for the property.</p><p>From everyday fixture problems to leaks, drains, water heaters, and larger plumbing questions, A2Z Plumbing LLC keeps the experience direct and easy to follow.</p><div className="about-points"><span><ShieldCheck size={18}/> Clear explanations</span><span><Clock3 size={18}/> Responsive service</span><span><House size={18}/> Respect for your space</span></div></div></div></section><section className="soft-section scroll-reveal"><div className="container about-values"><div><div className="eyebrow dark-eyebrow">WHAT YOU CAN EXPECT</div><h2>A better conversation about your plumbing.</h2></div><div className="value-grid"><div><b>01</b><h3>Listen first</h3><p>We start with your description and the signs you are seeing.</p></div><div><b>02</b><h3>Explain clearly</h3><p>We keep the next step practical and easy to understand.</p></div><div><b>03</b><h3>Stay reachable</h3><p>Call when the situation changes or you need help deciding what is urgent.</p></div></div></div></section><section className="final-cta scroll-reveal"><div className="container final-cta-inner"><div><div className="eyebrow">READY WHEN YOU ARE</div><h2>Let’s talk through the next right step.</h2></div><Button asChild className="btn-copper"><a href={PHONE_TEL}><Phone size={17}/> Call {PHONE_DISPLAY}</a></Button></div></section></div></>; }
 
-function ContactPage(){ return <><Seo title="Contact AZ Plumbers | Fairfield, CA" description="Contact AZ Plumbers for plumbing service in Fairfield and nearby California communities."/><BreadcrumbJsonLd items={[{name:"Home", url:"/"}, {name:"Contact", url:"/contact"}]} /><div className="page-shell"><BreadcrumbNav items={[{label:"Home", href:"/"}, {label:"Contact"}]} /><section className="location-hero contact-hero"><div className="container"><div className="eyebrow dark-eyebrow">CONTACT AZ PLUMBERS</div><h1>Tell us what’s happening.</h1><p className="location-lede">Call directly for plumbing help, service questions, and the best next step for your home or business.</p><Button asChild className="btn-copper"><a href={PHONE_TEL}><Phone size={17}/> Call {PHONE_DISPLAY}</a></Button></div></section><section className="content-section scroll-reveal"><div className="container contact-grid"><div><div className="eyebrow dark-eyebrow">GET IN TOUCH</div><h2>One call gets the conversation started.</h2><p>Share the location, what changed, and whether water is actively escaping. A photo or a quick description can help us understand the situation.</p><div className="contact-cards"><a href={PHONE_TEL}><Phone size={20}/><span><b>Call directly</b><small>{PHONE_DISPLAY}</small></span><ArrowRight size={16}/></a><div className="contact-card-static"><MapPin size={20}/><span><b>Service Area</b><small>Fairfield & Solano County, CA</small></span></div><a href="mailto:info@azplumbers.com"><Mail size={20}/><span><b>Email</b><small>info@azplumbers.com</small></span><ArrowRight size={16}/></a></div></div><div className="contact-panel"><div className="eyebrow dark-eyebrow">SERVICE HOURS</div><h3>Open 24 hours</h3><p>Call anytime to discuss an urgent plumbing issue or request service.</p><div className="contact-panel-line"><Clock3 size={18}/> Fairfield, California</div><div className="contact-panel-line"><ShieldCheck size={18}/> Residential & commercial plumbing</div></div></div></section><section className="soft-section scroll-reveal"><div className="container contact-map-grid"><div><div className="eyebrow dark-eyebrow">SERVICE AREA</div><h2>Serving Fairfield and nearby communities.</h2><p>AZ Plumbers is based in Fairfield and serves the surrounding communities listed on this site. Call to confirm availability for your address.</p></div><div className="service-coverage-card"><div className="coverage-badge"><Clock3 size={16}/> 24/7 Availability</div><h4>Solano & Napa County Dispatch</h4><p>Our fully stocked service vans are on standby to handle water heaters, drain backups, pipe bursts, and general repairs across Northern California.</p><div className="coverage-stats"><div><strong>Fairfield</strong><span>Dispatch Hub</span></div><div><strong>Fast</strong><span>Local Response</span></div><div><strong>24 Hrs</strong><span>Open Everyday</span></div></div></div></div></section></div></>; }
+function ContactPage(){ return <><Seo title="Contact A2Z Plumbing LLC | Fairfield, CA" description="Contact A2Z Plumbing LLC for plumbing service in Fairfield and nearby California communities."/><BreadcrumbJsonLd items={[{name:"Home", url:"/"}, {name:"Contact", url:"/contact"}]} /><div className="page-shell"><BreadcrumbNav items={[{label:"Home", href:"/"}, {label:"Contact"}]} /><section className="location-hero contact-hero"><div className="container"><div className="eyebrow dark-eyebrow">CONTACT A2Z PLUMBING</div><h1>Tell us what’s happening.</h1><p className="location-lede">Call directly for plumbing help, service questions, and the best next step for your home or business.</p><Button asChild className="btn-copper"><a href={PHONE_TEL}><Phone size={17}/> Call {PHONE_DISPLAY}</a></Button></div></section><section className="content-section scroll-reveal"><div className="container contact-grid"><div><div className="eyebrow dark-eyebrow">GET IN TOUCH</div><h2>One call gets the conversation started.</h2><p>Share the location, what changed, and whether water is actively escaping. A photo or a quick description can help us understand the situation.</p><div className="contact-cards"><a href={PHONE_TEL}><Phone size={20}/><span><b>Call directly</b><small>{PHONE_DISPLAY}</small></span><ArrowRight size={16}/></a><div className="contact-card-static"><MapPin size={20}/><span><b>Service Area</b><small>Fairfield & Solano County, CA</small></span></div><a href="mailto:info@a2zplumbingllc.com"><Mail size={20}/><span><b>Email</b><small>info@a2zplumbingllc.com</small></span><ArrowRight size={16}/></a></div></div><div className="contact-panel"><div className="eyebrow dark-eyebrow">SERVICE HOURS</div><h3>Open 24 hours</h3><p>Call anytime to discuss an urgent plumbing issue or request service.</p><div className="contact-panel-line"><Clock3 size={18}/> Fairfield, California</div><div className="contact-panel-line"><ShieldCheck size={18}/> Residential & commercial plumbing</div></div></div></section><section className="soft-section scroll-reveal"><div className="container contact-map-grid"><div><div className="eyebrow dark-eyebrow">SERVICE AREA</div><h2>Serving Fairfield and nearby communities.</h2><p>A2Z Plumbing LLC is based in Fairfield and serves the surrounding communities listed on this site. Call to confirm availability for your address.</p></div><div className="service-coverage-card"><div className="coverage-badge"><Clock3 size={16}/> 24/7 Availability</div><h4>Solano & Napa County Dispatch</h4><p>Our fully stocked service vans are on standby to handle water heaters, drain backups, pipe bursts, and general repairs across Northern California.</p><div className="coverage-stats"><div><strong>Fairfield</strong><span>Dispatch Hub</span></div><div><strong>Fast</strong><span>Local Response</span></div><div><strong>24 Hrs</strong><span>Open Everyday</span></div></div></div></div></section></div></>; }
 
 function ReviewsPage(){
   const reviewsSchema = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "name": "AZ Plumbers",
+    "name": "A2Z Plumbing LLC",
     "telephone": PHONE,
     "aggregateRating": {
       "@type": "AggregateRating",
@@ -612,7 +615,7 @@ function ReviewsPage(){
     {
       name: "Monique Keana",
       role: "Fairfield Homeowner",
-      text: "We had a great experience with AZ Plumbers. They were professional, courteous, and respectful of our home—especially wearing shoe covers while working. The pricing was transparent and fair. Highly recommended!"
+      text: "We had a great experience with A2Z Plumbing LLC. They were professional, courteous, and respectful of our home—especially wearing shoe covers while working. The pricing was transparent and fair. Highly recommended!"
     },
     {
       name: "Sim Manuta",
@@ -627,35 +630,35 @@ function ReviewsPage(){
     {
       name: "Veronika Skrnjug",
       role: "Verified Review",
-      text: "Our toilet needed urgent repair and AZ Plumbers came out the very next day—even on a Sunday! Service was fast, clean, and the price was very reasonable."
+      text: "Our toilet needed urgent repair and A2Z Plumbing LLC came out the very next day—even on a Sunday! Service was fast, clean, and the price was very reasonable."
     },
     {
       name: "David Miller",
       role: "Vacaville Resident",
-      text: "Woke up to cold water from a leaking water heater. Called AZ Plumbers and they were out within an hour. Explained our repair vs replacement options clearly with zero pressure. Fair pricing and spotless cleanup."
+      text: "Woke up to cold water from a leaking water heater. Called A2Z Plumbing LLC and they were out within an hour. Explained our repair vs replacement options clearly with zero pressure. Fair pricing and spotless cleanup."
     },
     {
       name: "Elena Rostova",
       role: "Solano County Resident",
-      text: "Honest and knowledgeable. Another company quoted an outrageous amount to tear up walls, but AZ Plumbers found the exact pinhole leak and repaired it cleanly with minimal disruption."
+      text: "Honest and knowledgeable. Another company quoted an outrageous amount to tear up walls, but A2Z Plumbing LLC found the exact pinhole leak and repaired it cleanly with minimal disruption."
     },
     {
       name: "Marcus Thorne",
       role: "Suisun City Homeowner",
-      text: "Punctual, clear pricing, and great communication from start to finish. It’s hard finding a dependable plumber you can truly trust—AZ Plumbers is now our first call."
+      text: "Punctual, clear pricing, and great communication from start to finish. It’s hard finding a dependable plumber you can truly trust—A2Z Plumbing LLC is now our first call."
     },
     {
       name: "Sarah Jenkins",
       role: "Benicia Resident",
-      text: "Had a stubborn drain backup late in the evening. AZ Plumbers arrived with complete diagnostic equipment, cleared the blockage fast, and made sure all lines were flowing freely."
+      text: "Had a stubborn drain backup late in the evening. A2Z Plumbing LLC arrived with complete diagnostic equipment, cleared the blockage fast, and made sure all lines were flowing freely."
     }
   ];
 
   return (
     <>
       <Seo
-        title="Customer Reviews & Ratings | AZ Plumbers"
-        description="Read real customer reviews and ratings for AZ Plumbers. Fast response, fair pricing, and clean plumbing workmanship in Fairfield & Solano County, CA."
+        title="Customer Reviews & Ratings | A2Z Plumbing LLC"
+        description="Read real customer reviews and ratings for A2Z Plumbing LLC. Fast response, fair pricing, and clean plumbing workmanship in Fairfield & Solano County, CA."
       />
       <JsonLd data={reviewsSchema} />
       <BreadcrumbJsonLd items={[{name: "Home", url: "/"}, {name: "Customer Reviews", url: "/reviews"}]} />
@@ -729,14 +732,14 @@ function GuideArticlePage({guideSlug}:{guideSlug:string}) {
     "description": guide.metaDesc,
     "author": {
       "@type": "Organization",
-      "name": "AZ Plumbers"
+      "name": "A2Z Plumbing LLC"
     },
     "publisher": {
       "@type": "Organization",
-      "name": "AZ Plumbers",
+      "name": "A2Z Plumbing LLC",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://www.azplumbers.com/favicon.svg"
+        "url": `${SITE_URL}/favicon.svg`
       }
     },
     "datePublished": guide.publishedDate
@@ -744,7 +747,7 @@ function GuideArticlePage({guideSlug}:{guideSlug:string}) {
 
   return (
     <>
-      <Seo title={`${guide.title} | AZ Plumbers`} description={guide.metaDesc} />
+      <Seo title={`${guide.title} | A2Z Plumbing LLC`} description={guide.metaDesc} />
       <JsonLd data={articleSchema} />
       <BreadcrumbJsonLd items={[{name:"Home", url:"/"}, {name:"Plumbing Guides", url:"/#guides"}, {name:guide.title, url:`/guides/${guide.slug}`}]} />
 
@@ -767,7 +770,7 @@ function GuideArticlePage({guideSlug}:{guideSlug:string}) {
 
               <div className="feature-band" style={{margin: '40px 0', padding: '30px', borderRadius: '12px', background: 'var(--mist)'}}>
                 <h3>Need Professional Assistance?</h3>
-                <p>If you prefer to have a licensed plumber inspect or repair your system, AZ Plumbers is ready to help.</p>
+                <p>If you prefer to have a licensed plumber inspect or repair your system, A2Z Plumbing LLC is ready to help.</p>
                 <div style={{marginTop: '20px', display: 'flex', gap: '15px', alignItems: 'center'}}>
                   <Button asChild className="btn-copper"><a href={PHONE_TEL}><Phone size={16}/> Call {PHONE_DISPLAY}</a></Button>
                   <Link href={`/${guide.relatedServiceId}`} className="text-link">Explore related service <ArrowRight size={15}/></Link>

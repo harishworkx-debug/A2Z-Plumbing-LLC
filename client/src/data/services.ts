@@ -21,9 +21,9 @@ export const servicesData: Record<string, ServiceData> = {
     slug: "plumber",
     name: "General Plumber",
     title: "Plumber in {city}, CA",
-    description: "AZ Plumbers provides professional plumbing services in {city}, CA, including plumbing repairs, drain services, water heater services and more.",
+    description: "A2Z Plumbing LLC provides professional plumbing services in {city}, CA, including plumbing repairs, drain services, water heater services and more.",
     image: "https://images.unsplash.com/photo-1585704032915-c3400ca199e7?auto=format&fit=crop&w=1400&q=85",
-    intro: "AZ Plumbers provides practical, responsive plumbing service for {city} homes and businesses. From a small fixture issue to an urgent leak, call for a clear next step.",
+    intro: "A2Z Plumbing LLC provides practical, responsive plumbing service for {city} homes and businesses. From a small fixture issue to an urgent leak, call for a clear next step.",
     signsH2: "Signs You Need a Plumber in {city}",
     signs: [
       "Unexplained increases in your monthly water bill",
@@ -50,7 +50,7 @@ export const servicesData: Record<string, ServiceData> = {
     faqs: [
       ["How much does a plumber cost in {city}?", "Pricing depends on the specific repair. We assess the issue first and provide a clear, upfront explanation of the repair path and costs before beginning work."],
       ["How quickly can you arrive in {city}?", "We are based locally and prioritize emergencies. We can often provide same-day service for urgent plumbing issues in {city}."],
-      ["Do you guarantee your plumbing work?", "Yes, AZ Plumbers stands by the quality of our repairs with professional warranties. We want you to feel confident in the work we do in your home."]
+      ["Do you guarantee your plumbing work?", "Yes, A2Z Plumbing LLC stands by the quality of our repairs with professional warranties. We want you to feel confident in the work we do in your home."]
     ]
   },
   "residential-plumbing": {
@@ -59,7 +59,7 @@ export const servicesData: Record<string, ServiceData> = {
     title: "Residential Plumbing in {city}, CA",
     description: "Professional residential plumbing services in {city}. We handle everyday plumbing repairs, fixture upgrades, and whole-home plumbing solutions.",
     image: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1400&q=85",
-    intro: "Comfortable homes depend on plumbing that works quietly and reliably. AZ Plumbers helps {city} homeowners with repairs, upgrades, and the everyday issues that interrupt a normal day.",
+    intro: "Comfortable homes depend on plumbing that works quietly and reliably. A2Z Plumbing LLC helps {city} homeowners with repairs, upgrades, and the everyday issues that interrupt a normal day.",
     signsH2: "Signs Your {city} Home Needs Plumbing Service",
     signs: [
       "Constant dripping from faucets or showerheads",
@@ -93,9 +93,9 @@ export const servicesData: Record<string, ServiceData> = {
     slug: "emergency-plumber",
     name: "Emergency Plumber",
     title: "Emergency Plumber in {city}, CA",
-    description: "Need an emergency plumber in {city}? Call AZ Plumbers for rapid response to burst pipes, severe leaks, and major backups.",
+    description: "Need an emergency plumber in {city}? Call A2Z Plumbing LLC for rapid response to burst pipes, severe leaks, and major backups.",
     image: "https://images.unsplash.com/photo-1585704032915-c3400ca199e7?auto=format&fit=crop&w=1400&q=85",
-    intro: "Burst pipes, active leaks, overflowing fixtures, and sudden loss of water need a calm, direct response. Call AZ Plumbers in {city} and describe what you are seeing.",
+    intro: "Burst pipes, active leaks, overflowing fixtures, and sudden loss of water need a calm, direct response. Call A2Z Plumbing LLC in {city} and describe what you are seeing.",
     signsH2: "When to Call an Emergency Plumber in {city}",
     signs: [
       "Water is actively pouring or spraying from a pipe",
@@ -131,7 +131,7 @@ export const servicesData: Record<string, ServiceData> = {
     title: "Plumbing Repair in {city}, CA",
     description: "Expert plumbing repair in {city}. We fix leaks, noisy pipes, and broken fixtures with practical, long-lasting solutions.",
     image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=1400&q=85",
-    intro: "When a plumbing system is noisy, slow, leaking, or simply not working as it should, the right repair begins with a useful diagnosis. AZ Plumbers serves {city} with practical repair support.",
+    intro: "When a plumbing system is noisy, slow, leaking, or simply not working as it should, the right repair begins with a useful diagnosis. A2Z Plumbing LLC serves {city} with practical repair support.",
     signsH2: "Signs You Need Plumbing Repair in {city}",
     signs: [
       "Loud banging or rattling when turning off faucets (water hammer)",
@@ -167,7 +167,7 @@ export const servicesData: Record<string, ServiceData> = {
     title: "Drain Cleaning in {city}, CA",
     description: "Professional drain cleaning services in {city}. We clear stubborn clogs and slow drains to get your plumbing moving again.",
     image: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1400&q=85",
-    intro: "Slow sinks, backed-up showers, and recurring clogs are signs that a drain needs more than another quick rinse. AZ Plumbers helps {city} customers get to the cause.",
+    intro: "Slow sinks, backed-up showers, and recurring clogs are signs that a drain needs more than another quick rinse. A2Z Plumbing LLC helps {city} customers get to the cause.",
     signsH2: "Signs You Need Drain Cleaning in {city}",
     signs: [
       "Water pooling around your feet in the shower",
@@ -203,7 +203,7 @@ export const servicesData: Record<string, ServiceData> = {
     title: "Leak Detection & Repair in {city}, CA",
     description: "Expert leak detection and repair in {city}. We find and fix hidden leaks in walls, ceilings, and under slabs to protect your home.",
     image: "https://images.unsplash.com/photo-1581244277943-fe4a9c777189?auto=format&fit=crop&w=1400&q=85",
-    intro: "A damp cabinet, unexplained water bill, ceiling mark, or hissing sound can all point to a leak. AZ Plumbers helps {city} homeowners narrow down the source and the next repair step.",
+    intro: "A damp cabinet, unexplained water bill, ceiling mark, or hissing sound can all point to a leak. A2Z Plumbing LLC helps {city} homeowners narrow down the source and the next repair step.",
     signsH2: "Signs You Have a Hidden Leak in {city}",
     signs: [
       "A sudden, unexplained spike in your water bill",
@@ -239,7 +239,7 @@ export const servicesData: Record<string, ServiceData> = {
     title: "Water Heater Repair in {city}, CA",
     description: "Reliable water heater repair in {city}. We fix lack of hot water, leaks, and strange noises for both tank and tankless systems.",
     image: "https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?auto=format&fit=crop&w=1400&q=85",
-    intro: "A cold shower, rumbling tank, inconsistent temperature, or visible moisture around a water heater deserves attention. AZ Plumbers helps {city} customers work through water heater problems.",
+    intro: "A cold shower, rumbling tank, inconsistent temperature, or visible moisture around a water heater deserves attention. A2Z Plumbing LLC helps {city} customers work through water heater problems.",
     signsH2: "Signs Your Water Heater Needs Repair in {city}",
     signs: [
       "Water is lukewarm or runs cold entirely too quickly",
@@ -276,7 +276,7 @@ export const servicesData: Record<string, ServiceData> = {
     title: "Water Heater Installation in {city}, CA",
     description: "Professional water heater installation in {city}. We expertly install standard and tankless water heaters tailored to your home.",
     image: "https://images.unsplash.com/photo-1617104551722-3b2d51366400?auto=format&fit=crop&w=1400&q=85",
-    intro: "A new water heater should match the household, the available space, and the way hot water is used. AZ Plumbers helps {city} customers plan a safe, tidy installation.",
+    intro: "A new water heater should match the household, the available space, and the way hot water is used. A2Z Plumbing LLC helps {city} customers plan a safe, tidy installation.",
     signsH2: "Signs It's Time for a New Water Heater in {city}",
     signs: [
       "Your current tank is over 12 years old",
@@ -312,7 +312,7 @@ export const servicesData: Record<string, ServiceData> = {
     title: "Toilet Repair in {city}, CA",
     description: "Fast toilet repair services in {city}. We fix running, leaking, and clogged toilets to restore function to your bathroom.",
     image: "https://images.unsplash.com/photo-1584622781867-1f5b3f6f2b85?auto=format&fit=crop&w=1400&q=80",
-    intro: "A running, rocking, clogging, or leaking toilet can waste water and disrupt a bathroom quickly. AZ Plumbers provides {city} toilet repair for common fixture problems.",
+    intro: "A running, rocking, clogging, or leaking toilet can waste water and disrupt a bathroom quickly. A2Z Plumbing LLC provides {city} toilet repair for common fixture problems.",
     signsH2: "Signs You Need Toilet Repair in {city}",
     signs: [
       "The toilet runs constantly or intermittently on its own",
@@ -348,7 +348,7 @@ export const servicesData: Record<string, ServiceData> = {
     title: "Faucet Repair in {city}, CA",
     description: "Professional faucet repair in {city}. Stop the drip and fix under-sink leaks with our reliable fixture repair services.",
     image: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1400&q=85",
-    intro: "A dripping faucet, stiff handle, loose base, or under-sink leak is more than an annoyance. AZ Plumbers helps {city} homes and businesses restore everyday fixtures.",
+    intro: "A dripping faucet, stiff handle, loose base, or under-sink leak is more than an annoyance. A2Z Plumbing LLC helps {city} homes and businesses restore everyday fixtures.",
     signsH2: "Signs Your Faucet Needs Attention",
     signs: [
       "A steady drip from the spout even when fully off",
@@ -384,7 +384,7 @@ export const servicesData: Record<string, ServiceData> = {
     title: "Garbage Disposal Repair in {city}, CA",
     description: "Garbage disposal repair and installation in {city}. We fix jammed, humming, and leaking disposals efficiently.",
     image: "https://images.unsplash.com/photo-1556912173-3bb406ef7e77?auto=format&fit=crop&w=1400&q=85",
-    intro: "A humming, jammed, leaking, or non-starting garbage disposal can bring a kitchen routine to a stop. AZ Plumbers helps {city} customers troubleshoot the next right move.",
+    intro: "A humming, jammed, leaking, or non-starting garbage disposal can bring a kitchen routine to a stop. A2Z Plumbing LLC helps {city} customers troubleshoot the next right move.",
     signsH2: "Signs of a Failing Garbage Disposal",
     signs: [
       "The disposal makes a humming noise but doesn't grind",
@@ -420,7 +420,7 @@ export const servicesData: Record<string, ServiceData> = {
     title: "Sewer Line Repair in {city}, CA",
     description: "Expert sewer line repair in {city}. Call us for solutions to major backups, root intrusion, and damaged sewer lines.",
     image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1400&q=85",
-    intro: "Repeated backups, slow drains throughout the home, or unusual yard moisture can signal a larger sewer-line concern. AZ Plumbers helps {city} customers understand the pattern and options.",
+    intro: "Repeated backups, slow drains throughout the home, or unusual yard moisture can signal a larger sewer-line concern. A2Z Plumbing LLC helps {city} customers understand the pattern and options.",
     signsH2: "Warning Signs of a Sewer Line Problem",
     signs: [
       "Sewage backing up into lower-level drains (like showers)",
@@ -456,7 +456,7 @@ export const servicesData: Record<string, ServiceData> = {
     title: "Repiping Services in {city}, CA",
     description: "Whole-home repiping in {city}. Upgrade your aging or leaking pipes with durable, modern plumbing systems.",
     image: "https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?auto=format&fit=crop&w=1400&q=85",
-    intro: "When a home has recurring leaks, poor pressure, or aging supply lines, repiping may be part of the conversation. AZ Plumbers helps {city} homeowners evaluate the practical signs.",
+    intro: "When a home has recurring leaks, poor pressure, or aging supply lines, repiping may be part of the conversation. A2Z Plumbing LLC helps {city} homeowners evaluate the practical signs.",
     signsH2: "Signs Your {city} Home Needs Repiping",
     signs: [
       "Frequent, recurring pinhole leaks in different areas",

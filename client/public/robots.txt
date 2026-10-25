@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.azplumbers.com/sitemap.xml
+Sitemap: https://www.a2zplumbingllc.com/sitemap.xml
